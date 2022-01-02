@@ -1,0 +1,88 @@
+= Crypto
+
+> 注解驱动的字符串加解密组件
+
+> 术语参考 https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html[Java Cryptography Architecture
+Standard Algorithm Name Documentation for JDK 8, role="external", window="_blank"]
+
+> 依赖额外算法lib：`org.bouncycastle:bcprov-jdk15on`
+
+通常使用两种加密方式
+
+- Cipher
+- Signature
+
+它们又有各自常用的算法，对于``Cipher``，常用``AES Algorithm``（对称加密）；对于``Signature``，常用``RSA Algorithm``（非对称加密）。
+
+目前该组件提供了``Cipher Algorithm AES``，即通常所说的AES加解密。
+
+== quickstart
+
+=== 配置
+
+> 只需简单的配置，便可使用它
+
+在pom.xml中添加
+
+[source,xml,indent=0]
+----
+<!--......-->
+<dependency>
+    <groupId>com.ycourlee.tranquil</groupId>
+    <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
+    <version>${latest.version}</version>
+</dependency>
+<!--......-->
+----
+
+如果是为了演示，已经无需额外配置了。若是用于生产等严格环境下，需要设置密钥串，保护你的数据，此时，在项目启动配置文件中添加，比如application.properties
+
+[source,properties,indent=0]
+----
+crypto.cipher.aes.default-prop.raw-key=your raw secret key
+----
+
+NOTE: ``your raw secret key``的长度必须能够被16整除
+
+基本配置已经完成，可以开始工作了，如果需要进阶配置Cipher Aes的加密模式和填充模式，请参考这里
+
+=== 用法
+
+组件提供具有声明式语义的注解来指定需要加解密的Java Bean属性。
+
+首先，声明需要加解密的字段。当一个Java Bean的属性需要加密时，使用注解@Ciphertext标注，声明该属性是密文，委托组件将其加密；需要解密时，使用@Plaintext标注，声明该属性是明文，委托组件将其解密
+
+[source,java,indent=0]
+----
+@Setter
+@Getter
+public class OneBean {
+
+    @Ciphertext
+    private String hello;
+
+    // ...
+
+    @Plaintext
+    private String world;
+}
+----
+
+NOTE: @Ciphertext、@Plaintext标注的属性必须有getter和setter方法，否则将有异常抛出。
+
+然后，使用@Crypto注解驱动加解密执行。在该Java Bean的一个实例被方法返回时：
+
+[source,java,indent=0]
+----
+public class OneClass {
+
+    @Crypto
+    public OneBean simple() {
+        OneBean bean = new OneBean();
+        bean.setHello("this is plaintext");
+        return bean;
+    }
+}
+----
+
+当simple方法被调用后，访问其返回对象的hello属性，得到的将是一段密文。

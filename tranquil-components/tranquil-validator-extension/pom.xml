@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ycourlee.tranquil</groupId>
+    <artifactId>tranquil-components</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>tranquil-validator-extension</artifactId>
+  <name>tranquil validator extension</name>
+  <description>tranquil validator extension</description>
+  <properties>
+    <git.connection>scm:git:git://github.com/yalden/tranquil.git</git.connection>
+    <git.developerConnection>scm:git:ssh://git@github.com/yalden/tranquil.git</git.developerConnection>
+    <git.url>http://github.com/yalden/tranquil</git.url>
+    <main.basedir>${project.basedir}/../..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+    </dependency>
+  </dependencies>
+</project>

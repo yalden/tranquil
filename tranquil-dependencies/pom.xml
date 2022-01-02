@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ycourlee.tranquil</groupId>
+    <artifactId>tranquil</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>tranquil-dependencies</artifactId>
+  <packaging>pom</packaging>
+  <name>tranquil dependencies</name>
+  <description>tranquil dependencies</description>
+  <modules>
+    <module>../tranquil-parent</module>
+  </modules>
+  <properties>
+    <main.basedir>${project.basedir}/..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-core</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-crypto</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-validator-extension</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

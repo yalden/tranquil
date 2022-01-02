@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>tranquil</artifactId>
+    <groupId>com.ycourlee.tranquil</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>tranquil-jacoco</artifactId>
+  <name>tranquil jacoco</name>
+  <description>tranquil jacoco</description>
+  <properties>
+    <main.basedir>${project.basedir}/..</main.basedir>
+    <classes>/target/classes</classes>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-core</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-crypto</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-validator-extension</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report-aggregate</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

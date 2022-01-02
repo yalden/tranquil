@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>tranquil-spring-boot-starters</artifactId>
+    <groupId>com.ycourlee.tranquil</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
+  <name>tranquil crypto spring boot starter</name>
+  <description>tranquil crypto spring boot starter</description>
+  <properties>
+    <main.basedir>${project.basedir}/../..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <dependencies>
+    <!--    Tranquil autoconfiguration-->
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-crypto</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+  </dependencies>
+</project>
