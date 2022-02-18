@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 
 import com.ycourlee.tranquil.autoconfiguration.crypto.AesCrypto;
-import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.CryptoAnnotationMetadata;
+import com.ycourlee.tranquil.autoconfiguration.crypto.CryptoAnnotationMetadata;
 import com.ycourlee.tranquil.crypto.Algorithms;
 import com.ycourlee.tranquil.crypto.exception.CryptoException;
 import org.apache.commons.lang3.tuple.ImmutablePair;

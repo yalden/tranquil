@@ -50,5 +50,10 @@
       <artifactId>tranquil-crypto</artifactId>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-crypto-annotation</artifactId>
+      <optional>true</optional>
+    </dependency>
   </dependencies>
 </project>

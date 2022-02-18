@@ -1,6 +1,7 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 
 import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.*;
+import com.ycourlee.tranquil.crypto.annotation.Crypto;
 import org.springframework.stereotype.Component;
 
 /**

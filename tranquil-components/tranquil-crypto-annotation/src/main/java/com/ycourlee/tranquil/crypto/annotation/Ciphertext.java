@@ -1,6 +1,4 @@
-package com.ycourlee.tranquil.autoconfiguration.crypto.annotation;
-
-import com.ycourlee.tranquil.crypto.Algorithms;
+package com.ycourlee.tranquil.crypto.annotation;
 
 import java.lang.annotation.*;
 
@@ -18,7 +16,7 @@ public @interface Ciphertext {
 
     Category category() default Category.TEXT;
 
-    Algorithms algorithm() default Algorithms.AES;
+    String algorithm() default "AES";
 
     String keyGroup() default "";
 

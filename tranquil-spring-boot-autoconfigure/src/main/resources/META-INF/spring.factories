@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.ycourlee.explore.solution.crypto.autoconfiguration.CryptoAutoConfiguration
+  com.ycourlee.tranquil.autoconfiguration.crypto.CryptoAutoConfiguration

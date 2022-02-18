@@ -91,8 +91,8 @@ public class StringUtil {
      *
      * <ul>
      * <li>toCamelCase("revision_world").equals("revisionWorld");</li>
-     * <li>toCamelCase("_revision_world").equals("revisionWorld");</li>
-     * <li>toCamelCase("revision__world").equals("revisionWorld");</li>
+     * <li>toCamelCase("_revision_world").equals("RevisionWorld");</li>
+     * <li>toCamelCase("revision_world").equals("revisionWorld");</li>
      * <li>toCamelCase("revision__world").equals("revisionWorld");</li>
      * <li>toCamelCase("revision__woRLd").equals("revisionWoRLd");</li>
      * <li>toCamelCase("revisionwoRLd").equals("revisionwoRLd");</li>
@@ -101,13 +101,9 @@ public class StringUtil {
      * @param src string linked with underline.
      * @return string in camel case.
      */
-    @Nullable
-    public static String toCamelCase(@Nullable String src) {
-        if (src == null) {
-            return null;
-        }
-        if (EMPTY.equals(src)) {
-            return EMPTY;
+    public static String toCamelCase(String src) {
+        if (src == null || src.isEmpty()) {
+            return src;
         }
         if (src.contains(UNDERLINE)) {
             int len = src.length();

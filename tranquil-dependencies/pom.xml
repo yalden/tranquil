@@ -39,6 +39,11 @@
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-crypto-annotation</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
         <version>1.0.0-SNAPSHOT</version>
       </dependency>
@@ -50,6 +55,11 @@
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-validator-extension</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-web</artifactId>
         <version>1.0.0-SNAPSHOT</version>
       </dependency>
     </dependencies>

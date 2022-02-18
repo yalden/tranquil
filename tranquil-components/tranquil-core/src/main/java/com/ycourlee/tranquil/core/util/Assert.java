@@ -4,6 +4,7 @@ package com.ycourlee.tranquil.core.util;
 import com.ycourlee.tranquil.core.exception.AssertException;
 
 import java.util.Collection;
+import java.util.function.Supplier;
 
 /**
  * @author yongjiang
@@ -35,6 +36,17 @@ public abstract class Assert {
     }
 
     /**
+     * @param expr     expr
+     * @param supplier supplier
+     * @param <T>      generic
+     */
+    public static <T> void that(boolean expr, Supplier<T> supplier) {
+        if (!expr) {
+            supplier.get();
+        }
+    }
+
+    /**
      * @param expr   expr
      * @param errMsg error message, transferred when expr is false
      * @throws AssertException thrown when expr is false
@@ -52,6 +64,17 @@ public abstract class Assert {
     public static void that(boolean expr) {
         if (!expr) {
             throw new AssertException(ASSERT_ERROR_MESSAGE_DEFAULT);
+        }
+    }
+
+    /**
+     * @param expr     expr
+     * @param supplier supplier
+     * @param <T>      generic
+     */
+    public static <T> void impossible(boolean expr, Supplier<T> supplier) {
+        if (expr) {
+            supplier.get();
         }
     }
 

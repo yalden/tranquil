@@ -1,8 +1,8 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 
 import com.ycourlee.tranquil.autoconfiguration.crypto.AesCrypto;
-import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.Ciphertext;
-import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.CryptoAnnotationMetadata;
+import com.ycourlee.tranquil.autoconfiguration.crypto.CryptoAnnotationMetadata;
+import com.ycourlee.tranquil.crypto.annotation.Ciphertext;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

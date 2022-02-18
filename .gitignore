@@ -28,3 +28,4 @@ build/
 **/.gradle
 **/.DS_Store
 !**/.mvn/wrapper/maven-wrapper.jar
+doc/

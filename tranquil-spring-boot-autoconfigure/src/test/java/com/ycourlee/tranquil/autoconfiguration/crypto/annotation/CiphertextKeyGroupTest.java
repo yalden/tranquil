@@ -1,5 +1,6 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.annotation;
 
+import com.ycourlee.tranquil.crypto.annotation.Ciphertext;
 import lombok.Getter;
 import lombok.Setter;
 

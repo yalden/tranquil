@@ -1,6 +1,9 @@
-package com.ycourlee.tranquil.autoconfiguration.crypto.annotation;
+package com.ycourlee.tranquil.autoconfiguration.crypto;
 
 import com.ycourlee.tranquil.crypto.Algorithms;
+import com.ycourlee.tranquil.crypto.annotation.Category;
+import com.ycourlee.tranquil.crypto.annotation.Ciphertext;
+import com.ycourlee.tranquil.crypto.annotation.Plaintext;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,12 +28,12 @@ public class CryptoAnnotationMetadata {
     private Boolean wasCipher;
 
     public static CryptoAnnotationMetadata from(Ciphertext ciphertext) {
-        return getCryptoAnnotationMetadata(ciphertext.category(), ciphertext.algorithm(), ciphertext.keyGroup(),
+        return getCryptoAnnotationMetadata(ciphertext.category(), Algorithms.valueOf(ciphertext.algorithm().toUpperCase()), ciphertext.keyGroup(),
                 ciphertext.group(), ciphertext.urlSafely(), true);
     }
 
     public static CryptoAnnotationMetadata from(Plaintext plaintext) {
-        return getCryptoAnnotationMetadata(plaintext.category(), plaintext.algorithm(), plaintext.keyGroup(),
+        return getCryptoAnnotationMetadata(plaintext.category(), Algorithms.valueOf(plaintext.algorithm().toUpperCase()), plaintext.keyGroup(),
                 plaintext.group(), plaintext.urlSafely(), false);
     }
 

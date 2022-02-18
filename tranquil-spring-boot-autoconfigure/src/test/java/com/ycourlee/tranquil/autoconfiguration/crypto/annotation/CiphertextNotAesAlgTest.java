@@ -1,6 +1,6 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.annotation;
 
-import com.ycourlee.tranquil.crypto.Algorithms;
+import com.ycourlee.tranquil.crypto.annotation.Ciphertext;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +12,6 @@ import lombok.Setter;
 @Getter
 public class CiphertextNotAesAlgTest {
 
-    @Ciphertext(algorithm = Algorithms.RSA)
+    @Ciphertext(algorithm = "RSA")
     private String hello;
 }

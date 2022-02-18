@@ -1,4 +1,4 @@
-package com.ycourlee.tranquil.autoconfiguration.crypto.annotation;
+package com.ycourlee.tranquil.crypto.annotation;
 
 /**
  * @author yongjiang

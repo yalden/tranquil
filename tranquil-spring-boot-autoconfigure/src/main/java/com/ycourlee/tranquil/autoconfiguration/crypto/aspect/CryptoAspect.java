@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 
 import com.ycourlee.tranquil.autoconfiguration.crypto.AesCrypto;
-import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.Crypto;
+import com.ycourlee.tranquil.crypto.annotation.Crypto;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,8 +17,8 @@ import java.util.List;
  *
  * @author yongjiang
  * @date 2021.12.06
- * @see com.ycourlee.tranquil.autoconfiguration.crypto.annotation.Ciphertext
- * @see com.ycourlee.tranquil.autoconfiguration.crypto.annotation.Plaintext
+ * @see com.ycourlee.tranquil.crypto.annotation.Ciphertext
+ * @see com.ycourlee.tranquil.crypto.annotation.Plaintext
  */
 @Aspect
 public class CryptoAspect {
