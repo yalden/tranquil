@@ -2,7 +2,8 @@ package com.ycourlee.tranquil.autoconfiguration.redisson;
 
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.ycourlee.tranquil.core.util.Assert;
-import com.ycourlee.tranquil.redisson.cache.annotation.Lockable;
+import com.ycourlee.tranquil.redisson.RedissonTemplate;
+import com.ycourlee.tranquil.redisson.annotation.Lockable;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

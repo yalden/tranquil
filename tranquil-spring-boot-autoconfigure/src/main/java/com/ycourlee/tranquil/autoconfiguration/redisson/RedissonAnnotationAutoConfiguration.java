@@ -3,6 +3,7 @@ package com.ycourlee.tranquil.autoconfiguration.redisson;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.loader.Loader;
 import com.mitchellbosecke.pebble.loader.StringLoader;
+import com.ycourlee.tranquil.redisson.RedissonTemplate;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

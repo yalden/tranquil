@@ -1,4 +1,4 @@
-package com.ycourlee.tranquil.redisson.cache.annotation;
+package com.ycourlee.tranquil.redisson.annotation;
 
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
