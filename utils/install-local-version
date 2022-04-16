@@ -9,8 +9,8 @@ RESET=$(tput sgr0)
 #set -eux
 set -eux
 
-./mvnw clean versions:set -DnewVersion=lv -Pversion
+./mvnw clean versions:set -DnewVersion=lv -Pjacoco
 
 ./mvnw install -Prelease
 
-./mvnw clean versions:revert
+./mvnw clean versions:revert -Pjacoco
