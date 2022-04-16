@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+# author: yongjiang
+
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
+
+#set -eux
+set -eux
+
+./mvnw clean versions:set -DnewVersion=lv -Pversion
+
+./mvnw install -Prelease
+
+./mvnw clean versions:revert

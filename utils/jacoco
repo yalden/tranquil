@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#author: yooonn jiang
+
+
+./mvnw clean verify -Pjacoco -f pom.xml

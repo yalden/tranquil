@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.ycourlee.tranquil.autoconfiguration.crypto.CryptoAutoConfiguration
+com.ycourlee.tranquil.autoconfiguration.crypto.CryptoAutoConfiguration,\
+com.ycourlee.tranquil.autoconfiguration.redisson.RedissonAnnotationAutoConfiguration

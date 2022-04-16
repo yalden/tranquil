@@ -30,38 +30,82 @@
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-core</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-annotation</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-redisson</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-redisson-spring-boot-starter</artifactId>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-validator-extension</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-web</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+            <configuration>
+              <pomElements>
+                <properties>remove</properties>
+                <repositories>remove</repositories>
+              </pomElements>
+              <updatePomFile>true</updatePomFile>
+              <flattenMode>bom</flattenMode>
+              <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
+              <flattenedPomFilename>${project.artifactId}-${project.version}.xml</flattenedPomFilename>
+            </configuration>
+          </execution>
+          <execution>
+            <id>flatten-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

@@ -30,6 +30,10 @@
     <jsr305.version>3.0.2</jsr305.version>
     <lombok.version>1.18.22</lombok.version>
     <main.basedir>${project.basedir}/..</main.basedir>
+    <pebble-spring-boot-starter.version>3.1.5</pebble-spring-boot-starter.version>
+    <pebble-spring5.version>3.1.5</pebble-spring5.version>
+    <redisson-spring-boot-starter.version>3.16.8</redisson-spring-boot-starter.version>
+    <redisson.version>3.16.8</redisson.version>
     <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
     <swagger-annotations.version>1.5.24</swagger-annotations.version>
   </properties>
@@ -72,6 +76,26 @@
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
       </dependency>
+      <dependency>
+        <groupId>io.pebbletemplates</groupId>
+        <artifactId>pebble-spring-boot-starter</artifactId>
+        <version>${pebble-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.pebbletemplates</groupId>
+        <artifactId>pebble-spring5</artifactId>
+        <version>${pebble-spring5.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.redisson</groupId>
+        <artifactId>redisson</artifactId>
+        <version>${redisson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.redisson</groupId>
+        <artifactId>redisson-spring-boot-starter</artifactId>
+        <version>${redisson-spring-boot-starter.version}</version>
+      </dependency>
       <!-- Import dependency management from Spring Boot -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -87,4 +111,40 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+            <configuration>
+              <pomElements>
+                <properties>remove</properties>
+                <repositories>remove</repositories>
+                <dependencyManagement>remove</dependencyManagement>
+              </pomElements>
+              <updatePomFile>true</updatePomFile>
+              <flattenMode>bom</flattenMode>
+              <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
+              <flattenedPomFilename>${project.artifactId}-${project.version}.xml</flattenedPomFilename>
+            </configuration>
+          </execution>
+          <execution>
+            <id>flatten-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
