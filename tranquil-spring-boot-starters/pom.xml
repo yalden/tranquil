@@ -18,9 +18,9 @@
     <module>tranquil-redisson-spring-boot-starter</module>
   </modules>
   <properties>
-    <git.connection>scm:git:git://github.com/yalden/tranquil.git</git.connection>
-    <git.developerConnection>scm:git:ssh://git@github.com/yalden/tranquil.git</git.developerConnection>
-    <git.url>http://github.com/yalden/tranquil</git.url>
+    <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
+    <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
+    <git.url>http://github.com/yoooonn/tranquil</git.url>
     <main.basedir>${project.basedir}/..</main.basedir>
   </properties>
   <scm>

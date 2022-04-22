@@ -20,7 +20,7 @@
     <module>tranquil-spring-boot-starters</module>
   </modules>
 
-  <url>https://github.com/yalden/tranquil</url>
+  <url>https://github.com/yoooonn/tranquil</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -31,9 +31,9 @@
   <properties>
     <revision>1.0.0-SNAPSHOT</revision>
 
-    <git.connection>scm:git:git://github.com/yalden/tranquil.git</git.connection>
-    <git.developerConnection>scm:git:ssh://git@github.com/yalden/tranquil.git</git.developerConnection>
-    <git.url>http://github.com/yalden/tranquil</git.url>
+    <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
+    <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
+    <git.url>http://github.com/yoooonn/tranquil</git.url>
     <jacoco.version>0.8.7</jacoco.version>
     <main.basedir>${project.basedir}</main.basedir>
   </properties>

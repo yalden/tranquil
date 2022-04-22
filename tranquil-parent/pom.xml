@@ -24,9 +24,9 @@
   <properties>
     <bcprov-jdk15on.version>1.69</bcprov-jdk15on.version>
     <fastjson.version>1.2.72</fastjson.version>
-    <git.connection>scm:git:git://github.com/yalden/tranquil.git</git.connection>
-    <git.developerConnection>scm:git:ssh://git@github.com/yalden/tranquil.git</git.developerConnection>
-    <git.url>http://github.com/yalden/tranquil</git.url>
+    <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
+    <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
+    <git.url>http://github.com/yoooonn/tranquil</git.url>
     <jsr305.version>3.0.2</jsr305.version>
     <lombok.version>1.18.22</lombok.version>
     <main.basedir>${project.basedir}/..</main.basedir>
