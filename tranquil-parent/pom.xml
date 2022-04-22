@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil-dependencies</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <relativePath>../tranquil-dependencies/pom.xml</relativePath>
   </parent>
 
@@ -42,18 +42,6 @@
     <developerConnection>${git.developerConnection}</developerConnection>
     <url>${git.url}</url>
   </scm>
-  <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-logging</artifactId>
-    </dependency>
-  </dependencies>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -117,6 +105,17 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>flatten-maven-plugin</artifactId>
+        <configuration>
+          <pomElements>
+            <properties>remove</properties>
+            <repositories>remove</repositories>
+            <dependencyManagement>remove</dependencyManagement>
+          </pomElements>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+          <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
+          <flattenedPomFilename>${project.artifactId}-${project.version}.xml</flattenedPomFilename>
+        </configuration>
         <executions>
           <execution>
             <id>flatten</id>
@@ -124,17 +123,6 @@
             <goals>
               <goal>flatten</goal>
             </goals>
-            <configuration>
-              <pomElements>
-                <properties>remove</properties>
-                <repositories>remove</repositories>
-                <dependencyManagement>remove</dependencyManagement>
-              </pomElements>
-              <updatePomFile>true</updatePomFile>
-              <flattenMode>bom</flattenMode>
-              <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
-              <flattenedPomFilename>${project.artifactId}-${project.version}.xml</flattenedPomFilename>
-            </configuration>
           </execution>
           <execution>
             <id>flatten-clean</id>

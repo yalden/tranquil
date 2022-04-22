@@ -24,14 +24,14 @@ import java.util.Map;
  * @date 2022.04.03
  */
 @Aspect
-public class RedissonLockAspect {
+public class LockableAspect {
 
-    private static final Logger log = LoggerFactory.getLogger(RedissonLockAspect.class);
+    private static final Logger log = LoggerFactory.getLogger(LockableAspect.class);
 
     private RedissonTemplate redissonTemplate;
     private PebbleEngine     pebbleEngine;
 
-    public RedissonLockAspect(
+    public LockableAspect(
             RedissonTemplate redissonTemplate,
             PebbleEngine pebbleEngine
     ) {

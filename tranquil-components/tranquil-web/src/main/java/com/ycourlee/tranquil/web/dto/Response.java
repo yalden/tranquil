@@ -15,7 +15,7 @@ import java.util.UUID;
  *
  * @author yongjiang
  */
-public class Response<T> extends HashMap<String, Object> {
+public class Response extends HashMap<String, Object> {
 
     private static final long serialVersionUID         = 3097207393413111132L;
     private static final int  DEFAULT_INITIAL_CAPACITY = 1 << 3;
@@ -30,7 +30,7 @@ public class Response<T> extends HashMap<String, Object> {
         super(DEFAULT_INITIAL_CAPACITY);
     }
 
-    private Response(Integer code, String msg, T data) {
+    private Response(Integer code, String msg, Object data) {
         super(DEFAULT_INITIAL_CAPACITY);
         super.put(TIMESTAMP, System.nanoTime());
         super.put(RID, UUID.randomUUID().toString());
@@ -39,62 +39,62 @@ public class Response<T> extends HashMap<String, Object> {
         super.put(DATA, data);
     }
 
-    private Response(CodeMessage cmReturn, T data) {
+    private Response(CodeMessage cmReturn, Object data) {
         this(cmReturn.getCode(), cmReturn.getMsg(), data);
     }
 
-    public Response<T> pin(String key, Object data) {
+    public Response pin(String key, Object data) {
         super.put(key, data);
         return this;
     }
 
-    public Response<T> code(Object code) {
+    public Response code(Object code) {
         super.put(CODE, code);
         return this;
     }
 
-    public Response<T> msg(Object msg) {
+    public Response msg(Object msg) {
         super.put(MSG, msg);
         return this;
     }
 
-    public Response<T> data(Object data) {
+    public Response data(Object data) {
         super.put(DATA, data);
         return this;
     }
 
-    public Response<T> minimize() {
+    public Response minimize() {
         super.remove(TIMESTAMP);
         super.remove(RID);
         return this;
     }
 
-    public static <T> Response<T> blanker() {
-        return new Response<>();
+    public static Response blanker() {
+        return new Response();
     }
 
-    public static <T> Response<T> success() {
+    public static Response success() {
         return success(ApiCode.SUCCESS.getCode(), ApiCode.SUCCESS.getMsg(), null);
     }
 
-    public static <T> Response<T> success(T data) {
+    public static Response success(Object data) {
         return success(ApiCode.SUCCESS.getCode(), ApiCode.SUCCESS.getMsg(), data);
     }
 
-    public static <T> Response<T> success(Integer code, String msg, T data) {
-        return new Response<>(code, msg, data);
+    public static Response success(Integer code, String msg, Object data) {
+        return new Response(code, msg, data);
     }
 
-    public static <T> Response<T> error() {
+    public static Response error() {
         return error(ApiCode.ERROR.getCode(), ApiCode.ERROR.getMsg(), null);
     }
 
-    public static <T> Response<T> error(CodeMessage body) {
+    public static Response error(CodeMessage body) {
         return error(body.getCode(), body.getMsg(), null);
     }
 
-    public static <T> Response<T> error(Integer code, String msg, T data) {
-        return new Response<>(code, msg, data);
+    public static Response error(Integer code, String msg, Object data) {
+        return new Response(code, msg, data);
     }
 
     /*----------BELOW---------- Privatization ----------BELOW----------*/

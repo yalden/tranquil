@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <relativePath>../tranquil-parent/pom.xml</relativePath>
   </parent>
 
@@ -29,4 +29,15 @@
     <developerConnection>${git.developerConnection}</developerConnection>
     <url>${git.url}</url>
   </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-logging</artifactId>
+    </dependency>
+  </dependencies>
 </project>

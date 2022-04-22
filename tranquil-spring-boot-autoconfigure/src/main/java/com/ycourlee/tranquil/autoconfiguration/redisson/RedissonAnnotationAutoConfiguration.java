@@ -34,10 +34,10 @@ public class RedissonAnnotationAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RedissonLockAspect redissonLockAspect(
+    public LockableAspect redissonLockAspect(
             RedissonTemplate redissonTemplate,
             @Qualifier("pebbleEngine") PebbleEngine pebbleEngine
     ) {
-        return new RedissonLockAspect(redissonTemplate, pebbleEngine);
+        return new LockableAspect(redissonTemplate, pebbleEngine);
     }
 }

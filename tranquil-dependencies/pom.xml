@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
   </parent>
 
   <artifactId>tranquil-dependencies</artifactId>
@@ -30,47 +30,47 @@
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-core</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-annotation</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-redisson</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-redisson-spring-boot-starter</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-validator-extension</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-web</artifactId>
-        <version>${project.version}</version>
+        <version>${revision}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -79,6 +79,17 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>flatten-maven-plugin</artifactId>
+        <configuration>
+          <pomElements>
+            <properties>remove</properties>
+            <repositories>remove</repositories>
+            <dependencyManagement>expand</dependencyManagement>
+          </pomElements>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>bom</flattenMode>
+          <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
+          <flattenedPomFilename>${project.artifactId}-${project.version}.xml</flattenedPomFilename>
+        </configuration>
         <executions>
           <execution>
             <id>flatten</id>
@@ -86,16 +97,6 @@
             <goals>
               <goal>flatten</goal>
             </goals>
-            <configuration>
-              <pomElements>
-                <properties>remove</properties>
-                <repositories>remove</repositories>
-              </pomElements>
-              <updatePomFile>true</updatePomFile>
-              <flattenMode>bom</flattenMode>
-              <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
-              <flattenedPomFilename>${project.artifactId}-${project.version}.xml</flattenedPomFilename>
-            </configuration>
           </execution>
           <execution>
             <id>flatten-clean</id>
