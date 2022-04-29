@@ -1,5 +1,6 @@
 package com.ycourlee.tranquil.web.dto;
 
+import com.alibaba.fastjson.JSON;
 import com.ycourlee.tranquil.web.ApiCode;
 import com.ycourlee.tranquil.web.CodeMessage;
 
@@ -39,11 +40,7 @@ public class ApiResponse<T> implements Serializable {
     }
 
     public static <T> ApiResponse<T> success(T data) {
-        return success(ApiCode.SUCCESS.getCode(), ApiCode.SUCCESS.getMsg(), data);
-    }
-
-    public static <T> ApiResponse<T> success(int code, String message, T data) {
-        return new ApiResponse<>(code, message, data);
+        return new ApiResponse<>(ApiCode.SUCCESS.getCode(), ApiCode.SUCCESS.getMsg(), data);
     }
 
     public static ApiResponse<Object> error() {
@@ -51,43 +48,42 @@ public class ApiResponse<T> implements Serializable {
     }
 
     public static <T> ApiResponse<T> error(CodeMessage rt) {
-        return error(rt.getCode(), rt.getMsg(), null);
+        return new ApiResponse<>(rt.getCode(), rt.getMsg(), null);
     }
 
-    public static <T> ApiResponse<T> error(int code, String message, T date) {
-        return new ApiResponse<>(code, message, date);
+    public static <T> ApiResponse<T> error(int code, String message) {
+        return new ApiResponse<>(code, message, null);
     }
 
     public int getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public ApiResponse<T> setCode(int code) {
         this.code = code;
+        return this;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public ApiResponse<T> setMessage(String message) {
         this.message = message;
+        return this;
     }
 
     public T getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public ApiResponse<T> setData(T data) {
         this.data = data;
+        return this;
     }
 
     @Override
     public String toString() {
-        return "ApiResponse{" +
-                "code=" + code +
-                ", message='" + message + '\'' +
-                ", data=" + data +
-                '}';
+        return JSON.toJSONString(this);
     }
 }
