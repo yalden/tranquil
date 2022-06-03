@@ -21,6 +21,10 @@
   <dependencies>
     <dependency>
       <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
       <artifactId>tranquil-redisson</artifactId>
     </dependency>
     <dependency>

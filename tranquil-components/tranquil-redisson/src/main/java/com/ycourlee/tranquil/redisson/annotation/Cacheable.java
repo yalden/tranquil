@@ -3,7 +3,7 @@ package com.ycourlee.tranquil.redisson.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2022.04.03
  */
 @Documented

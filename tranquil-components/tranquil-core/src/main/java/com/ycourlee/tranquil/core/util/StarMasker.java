@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.Nullable;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.12.10
  */
 public class StarMasker {

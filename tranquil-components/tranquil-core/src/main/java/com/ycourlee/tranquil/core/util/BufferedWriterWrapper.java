@@ -4,7 +4,7 @@ import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  */
 public class BufferedWriterWrapper implements Closeable {
 

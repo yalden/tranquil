@@ -7,7 +7,6 @@ import com.ycourlee.tranquil.crypto.factory.DefaultCipherFactory;
 import com.ycourlee.tranquil.crypto.factory.Factory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +17,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.12.13
  */
 @Configuration(proxyBeanMethods = false)

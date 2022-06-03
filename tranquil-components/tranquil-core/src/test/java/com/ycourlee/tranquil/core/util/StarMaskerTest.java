@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.12.11
  */
 public class StarMaskerTest {

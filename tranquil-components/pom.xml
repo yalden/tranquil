@@ -17,6 +17,7 @@
     <module>tranquil-core</module>
     <module>tranquil-crypto</module>
     <module>tranquil-crypto-annotation</module>
+    <module>tranquil-jwt</module>
     <module>tranquil-redisson</module>
     <module>tranquil-validator-extension</module>
     <module>tranquil-web</module>

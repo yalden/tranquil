@@ -3,7 +3,7 @@ package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.12.17
  */
 public interface CryptoAnnotationProcess {

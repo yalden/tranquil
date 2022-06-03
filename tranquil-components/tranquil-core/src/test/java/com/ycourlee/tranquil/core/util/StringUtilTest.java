@@ -3,11 +3,9 @@ package com.ycourlee.tranquil.core.util;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2022.02.19
  */
 public class StringUtilTest {

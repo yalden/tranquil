@@ -4,7 +4,7 @@ import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2022.04.16
  */
 public class RedissonTemplate {

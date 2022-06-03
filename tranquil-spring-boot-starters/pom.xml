@@ -15,6 +15,7 @@
 
   <modules>
     <module>tranquil-crypto-spring-boot-starter</module>
+    <module>tranquil-jwt-spring-boot-starter</module>
     <module>tranquil-redisson-spring-boot-starter</module>
   </modules>
   <properties>

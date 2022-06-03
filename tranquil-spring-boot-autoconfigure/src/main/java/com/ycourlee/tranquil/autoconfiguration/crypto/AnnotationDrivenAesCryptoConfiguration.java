@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.12.22
  */
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConditionalOnCryptoEnabled
 class AnnotationDrivenAesCryptoConfiguration {
 

@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * created on 2021.04.24
  *
- * @author yongjiang
+ * @author yoooonn
  */
 public class CollectionUtil {
 

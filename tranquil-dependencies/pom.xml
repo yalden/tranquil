@@ -49,6 +49,16 @@
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-jwt</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-jwt-spring-boot-starter</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-redisson</artifactId>
         <version>${revision}</version>
       </dependency>

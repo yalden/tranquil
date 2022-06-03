@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2022.04.14
  */
 @Configuration(proxyBeanMethods = false)

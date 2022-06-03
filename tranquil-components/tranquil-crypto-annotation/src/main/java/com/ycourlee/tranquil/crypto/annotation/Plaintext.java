@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * 声明一个元素为明文。用于类的属性上，被声明的属性将在加解密执行时，被处理为明文
  *
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.11.12
  * @see Ciphertext
  */

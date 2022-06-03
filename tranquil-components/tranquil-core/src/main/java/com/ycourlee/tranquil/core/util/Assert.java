@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.function.Supplier;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.12.10
  */
 public abstract class Assert {

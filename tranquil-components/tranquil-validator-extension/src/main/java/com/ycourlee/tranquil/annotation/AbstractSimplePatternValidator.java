@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.11.15
  */
 public abstract class AbstractSimplePatternValidator<T extends Annotation> implements ConstraintValidator<T, CharSequence> {

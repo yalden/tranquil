@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.autoconfiguration.redisson;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2022.04.14
  */
 public class WaitLockTimeoutException extends RuntimeException {

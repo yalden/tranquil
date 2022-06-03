@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.Map;
 
 /**
- * @author yongjiang
+ * @author yoooonn
  * @date 2021.11.12
  */
 @Setter
@@ -17,7 +17,7 @@ import java.util.Map;
 @ConfigurationProperties(prefix = CryptoProperties.PREFIX)
 public class CryptoProperties {
 
-    public static final String PREFIX = "crypto";
+    public static final String PREFIX = "tranquil.crypto";
 
     private Boolean enable;
 

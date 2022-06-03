@@ -27,6 +27,7 @@
     <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
     <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
     <git.url>http://github.com/yoooonn/tranquil</git.url>
+    <jsonwebtoken.version>0.11.2</jsonwebtoken.version>
     <jsr305.version>3.0.2</jsr305.version>
     <lombok.version>1.18.22</lombok.version>
     <main.basedir>${project.basedir}/..</main.basedir>
@@ -53,6 +54,21 @@
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
         <version>${fastjson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-api</artifactId>
+        <version>${jsonwebtoken.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>${jsonwebtoken.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+        <version>${jsonwebtoken.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
