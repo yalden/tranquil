@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2022.04.14
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnClass({PebbleEngine.class, RedissonClient.class})
+@ConditionalOnClass({RedissonTemplate.class, PebbleEngine.class, RedissonClient.class})
 public class RedissonAnnotationAutoConfiguration {
 
     @Bean("pebbleLoader")

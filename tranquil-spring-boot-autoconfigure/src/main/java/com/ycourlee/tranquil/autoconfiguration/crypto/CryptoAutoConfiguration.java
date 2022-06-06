@@ -2,6 +2,7 @@ package com.ycourlee.tranquil.autoconfiguration.crypto;
 
 import com.ycourlee.tranquil.crypto.CipherParam;
 import com.ycourlee.tranquil.crypto.aes.AesCryptoExecutor;
+import com.ycourlee.tranquil.crypto.annotation.Crypto;
 import com.ycourlee.tranquil.crypto.factory.DefaultAesSecretKeyFactory;
 import com.ycourlee.tranquil.crypto.factory.DefaultCipherFactory;
 import com.ycourlee.tranquil.crypto.factory.Factory;
@@ -21,7 +22,7 @@ import javax.crypto.SecretKey;
  * @date 2021.12.13
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnClass(AesCryptoExecutor.class)
+@ConditionalOnClass({AesCryptoExecutor.class, Crypto.class})
 @EnableConfigurationProperties(value = CryptoProperties.class)
 @Import({AnnotationDrivenAesCryptoConfiguration.class})
 @ConditionalOnCryptoEnabled
