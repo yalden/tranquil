@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @author yooonn
@@ -20,6 +21,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnBean({PebbleEngine.class, RedissonClient.class})
 @ConditionalOnProperty(prefix = "tranquil.redisson", name = "enable", havingValue = "true", matchIfMissing = true)
+@EnableAspectJAutoProxy
 public class RedissonAnnotationAutoConfiguration {
 
     /**
@@ -46,7 +48,7 @@ public class RedissonAnnotationAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public LockableAspect redissonLockAspect(
+    public LockableAspect lockableAspect(
             RedissonTemplate redissonTemplate,
             @Qualifier("pebbleEngine") PebbleEngine pebbleEngine
     ) {

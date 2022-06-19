@@ -14,7 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class FileUtilTests {
 
-    @Test void writeToFileTest() throws IOException {
+    @Test
+    void writeToFileTest() throws IOException {
         String filepath = UserDirectories.TEMP_DIR + "/a.txt";
         FileUtil.rmDirOrFile(filepath);
         assertFalse(FileUtil.exist(filepath));
@@ -30,7 +31,8 @@ public class FileUtilTests {
         assertEquals("foo text", new BufferedReaderWrapper(filepath).readLine());
     }
 
-    @Test void rmDirOrFileTest() {
+    @Test
+    void rmDirOrFileTest() {
         FileUtil.rmDirOrFile(UserDirectories.TEMP_DIR + "/this-is-a-not-exist-file.txt");
 
         // noinspection ResultOfMethodCallIgnored

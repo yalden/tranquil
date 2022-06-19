@@ -5,6 +5,7 @@ import java.nio.file.FileAlreadyExistsException;
 
 /**
  * Wrap {@link BufferedWriter} for quick access file.
+ *
  * @author yooonn
  */
 public class BufferedWriterWrapper implements Closeable {

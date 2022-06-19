@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author yooonn
  * @date 2021.12.16
  */
-public class AesCryptoTest extends ApplicationContextRunningConfiguration {
+public class AesCryptoTest extends CryptoAutoConfigurationTests {
 
     private static final Logger log = LoggerFactory.getLogger(AesCryptoTest.class);
 

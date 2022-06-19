@@ -11,11 +11,11 @@ import javax.annotation.Nullable;
  */
 public class StarMasker {
 
-    private StarMasker() {
-    }
-
     private static final Logger log      = LoggerFactory.getLogger(StarMasker.class);
     private static final String asterisk = "*";
+
+    private StarMasker() {
+    }
 
     public static String mask(@Nullable String sensitive, int begin) {
         return mask(sensitive, begin, sensitive == null ? 0 : sensitive.length(), true);

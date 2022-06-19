@@ -15,6 +15,7 @@ import java.util.List;
 public class PageResponse<T> implements Serializable {
 
     private static final long serialVersionUID = 3985752812408085575L;
+
     @ApiModelProperty("页码")
     private int     page;
     @ApiModelProperty("页大小")

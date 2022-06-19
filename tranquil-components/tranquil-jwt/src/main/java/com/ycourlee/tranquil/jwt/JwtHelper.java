@@ -22,6 +22,7 @@ import java.util.Date;
  * 还是编码时拆箱，直接操作json。
  * <p>
  * 这就是只采用一个自定义claim的原因。
+ *
  * @author yooonn
  */
 public class JwtHelper {
@@ -32,7 +33,7 @@ public class JwtHelper {
 
     private String base64EncodedSecretKey = "how are you";
 
-    private String claimName  = "payload";
+    private String claimName = "payload";
 
     private String leadingSymbol;
 
@@ -82,6 +83,7 @@ public class JwtHelper {
 
     /**
      * Claims of given Json web token
+     *
      * @param token json web token
      * @return claims
      */

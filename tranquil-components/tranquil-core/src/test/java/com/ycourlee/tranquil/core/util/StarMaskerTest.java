@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class StarMaskerTest {
 
-    @Test void mainTest() {
+    @Test
+    void mainTest() {
         String nil = StarMasker.mask(null, 3);
         assertEquals(nil, "null");
         String empty = StarMasker.mask("", 3);

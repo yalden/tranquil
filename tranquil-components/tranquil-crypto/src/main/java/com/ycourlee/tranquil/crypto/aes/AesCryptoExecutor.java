@@ -24,22 +24,20 @@ import java.util.Base64;
  */
 public class AesCryptoExecutor {
 
+    private static final Logger                       log = LoggerFactory.getLogger(AesCryptoExecutor.class);
     /**
      * 默认密钥
      */
-    public final String           rawKey;
+    public final         String                       rawKey;
     /**
      * 算法/加密模式/补码填充方式
      */
-    private      String           defaultTransform;
-    private      CipherAlgMode    defaultCipherAlgMode;
-    private      CipherAlgPadding defaultCipherAlgPadding;
-    private      String           defaultCipherAlgCbcModeIv;
-
-    private static final Logger log = LoggerFactory.getLogger(AesCryptoExecutor.class);
-
-    private Factory<Cipher, CipherParam> cipherFactory;
-    private Factory<SecretKey, String>   aesSecretKeyFactory;
+    private              String                       defaultTransform;
+    private              CipherAlgMode                defaultCipherAlgMode;
+    private              CipherAlgPadding             defaultCipherAlgPadding;
+    private              String                       defaultCipherAlgCbcModeIv;
+    private              Factory<Cipher, CipherParam> cipherFactory;
+    private              Factory<SecretKey, String>   aesSecretKeyFactory;
 
     public AesCryptoExecutor() {
         this(new DefaultCipherFactory(), new DefaultAesSecretKeyFactory(),
@@ -66,6 +64,10 @@ public class AesCryptoExecutor {
         this.defaultCipherAlgPadding = defaultCipherAlgPadding;
         this.defaultCipherAlgCbcModeIv = defaultCipherAlgCbcModeIv;
         this.defaultTransform = transformOf(defaultCipherAlgMode, defaultCipherAlgPadding);
+    }
+
+    public static String transformOf(CipherAlgMode mode, CipherAlgPadding padding) {
+        return Algorithms.AES.name() + StringUtil.SLASH + mode.name() + StringUtil.SLASH + padding.name();
     }
 
     public String ciphertext(String plaintext) {
@@ -245,9 +247,5 @@ public class AesCryptoExecutor {
 
     public CipherAlgPadding getCipherAlgPadding() {
         return defaultCipherAlgPadding;
-    }
-
-    public static String transformOf(CipherAlgMode mode, CipherAlgPadding padding) {
-        return Algorithms.AES.name() + StringUtil.SLASH + mode.name() + StringUtil.SLASH + padding.name();
     }
 }

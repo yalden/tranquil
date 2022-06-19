@@ -2,13 +2,11 @@ package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 
 import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.*;
 import com.ycourlee.tranquil.crypto.annotation.Crypto;
-import org.springframework.stereotype.Component;
 
 /**
  * @author yooonn
  * @date 2021.12.16
  */
-@Component
 public class CryptoAspectPointcutTest {
 
     public CiphertextTest willNotBeWeaved() {

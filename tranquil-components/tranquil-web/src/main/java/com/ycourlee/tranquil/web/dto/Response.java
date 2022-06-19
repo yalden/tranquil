@@ -17,14 +17,13 @@ import java.util.UUID;
  */
 public class Response extends HashMap<String, Object> {
 
-    private static final long serialVersionUID         = 3097207393413111132L;
-    private static final int  DEFAULT_INITIAL_CAPACITY = 1 << 3;
-
-    public static final String TIMESTAMP = "timestamp";
-    public static final String RID       = "rid";
-    public static final String CODE      = "code";
-    public static final String MSG       = "msg";
-    public static final String DATA      = "data";
+    public static final  String TIMESTAMP                = "timestamp";
+    public static final  String RID                      = "rid";
+    public static final  String CODE                     = "code";
+    public static final  String MSG                      = "msg";
+    public static final  String DATA                     = "data";
+    private static final long   serialVersionUID         = 3097207393413111132L;
+    private static final int    DEFAULT_INITIAL_CAPACITY = 1 << 3;
 
     private Response() {
         super(DEFAULT_INITIAL_CAPACITY);
@@ -43,30 +42,16 @@ public class Response extends HashMap<String, Object> {
         this(cmReturn.getCode(), cmReturn.getMsg(), data);
     }
 
-    public Response pin(String key, Object data) {
-        super.put(key, data);
-        return this;
+    private Response(int initialCapacity, float loadFactor) {
+        super(initialCapacity, loadFactor);
     }
 
-    public Response code(Object code) {
-        super.put(CODE, code);
-        return this;
+    private Response(int initialCapacity) {
+        super(initialCapacity);
     }
 
-    public Response msg(Object msg) {
-        super.put(MSG, msg);
-        return this;
-    }
-
-    public Response data(Object data) {
-        super.put(DATA, data);
-        return this;
-    }
-
-    public Response minimize() {
-        super.remove(TIMESTAMP);
-        super.remove(RID);
-        return this;
+    private Response(Map<? extends String, ?> m) {
+        super(m);
     }
 
     public static Response blanker() {
@@ -97,17 +82,31 @@ public class Response extends HashMap<String, Object> {
         return new Response(code, msg, data);
     }
 
+    public Response pin(String key, Object data) {
+        super.put(key, data);
+        return this;
+    }
+
+    public Response code(Object code) {
+        super.put(CODE, code);
+        return this;
+    }
+
     /*----------BELOW---------- Privatization ----------BELOW----------*/
 
-    private Response(int initialCapacity, float loadFactor) {
-        super(initialCapacity, loadFactor);
+    public Response msg(Object msg) {
+        super.put(MSG, msg);
+        return this;
     }
 
-    private Response(int initialCapacity) {
-        super(initialCapacity);
+    public Response data(Object data) {
+        super.put(DATA, data);
+        return this;
     }
 
-    private Response(Map<? extends String, ?> m) {
-        super(m);
+    public Response minimize() {
+        super.remove(TIMESTAMP);
+        super.remove(RID);
+        return this;
     }
 }

@@ -29,15 +29,15 @@ public class JwtProperties {
     /**
      * jwt issuer.
      */
-    private String issuer = "admin";
+    private String issuer    = "admin";
     /**
      * subject of issuing jwt.
      */
-    private String subject = "subject";
+    private String subject   = "subject";
     /**
      * audience of jwt.
      */
-    private String audience = "audience";
+    private String audience  = "audience";
     /**
      * Claim key
      */

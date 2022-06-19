@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class StringUtilTest {
 
-    @Test void toCamelCaseTest() {
+    @Test
+    void toCamelCaseTest() {
         // noinspection ConstantConditions
         String a = StringUtil.toCamelCase(null);
         // noinspection ConstantConditions

@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto.aspect;
 
 import com.alibaba.fastjson.JSON;
-import com.ycourlee.tranquil.autoconfiguration.crypto.ApplicationContextRunningConfiguration;
+import com.ycourlee.tranquil.autoconfiguration.crypto.CryptoAutoConfigurationTests;
 import com.ycourlee.tranquil.autoconfiguration.crypto.annotation.*;
 import com.ycourlee.tranquil.crypto.exception.CryptoException;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author yooonn
  * @date 2021.12.16
  */
-public class CryptoAspectTest extends ApplicationContextRunningConfiguration {
+public class CryptoAspectTest extends CryptoAutoConfigurationTests {
 
     private static final Logger log = LoggerFactory.getLogger(CryptoAspectTest.class);
 
@@ -27,7 +27,6 @@ public class CryptoAspectTest extends ApplicationContextRunningConfiguration {
     void willNotBeWeavedTest() {
         CiphertextTest notBeWeaved = cryptoAspectPointcutTest.willNotBeWeaved();
         assertEquals("hello", notBeWeaved.getHello());
-        log.info("notBeWeaved: {}", JSON.toJSONString(notBeWeaved));
     }
 
     @Test
@@ -36,8 +35,6 @@ public class CryptoAspectTest extends ApplicationContextRunningConfiguration {
         assertNotEquals(simple.getHello(), "hello");
         PlaintextTest simplePlaintext = cryptoAspectPointcutTest.simplePlaintext(simple.getHello());
         assertEquals(simplePlaintext.getHello(), "hello");
-        log.info("simple: {}", JSON.toJSONString(simple));
-        log.info("simplePlaintext: {}", JSON.toJSONString(simplePlaintext));
     }
 
     @Test
@@ -48,8 +45,6 @@ public class CryptoAspectTest extends ApplicationContextRunningConfiguration {
         PlaintextCryptoEnableGroupTest plaintext = cryptoAspectPointcutTest.groupPlaintext(group.getHello(), group.getWorld());
         assertEquals(plaintext.getHello(), "hello");
         assertEquals(plaintext.getWorld(), "world");
-        log.info("group: {}", JSON.toJSONString(group));
-        log.info("plaintext: {}", JSON.toJSONString(plaintext));
     }
 
     @Test

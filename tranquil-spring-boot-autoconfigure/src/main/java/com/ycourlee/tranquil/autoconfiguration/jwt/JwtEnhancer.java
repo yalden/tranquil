@@ -21,13 +21,15 @@ public class JwtEnhancer extends JwtHelper {
         this.jwtProperties = jwtProperties;
     }
 
-    @Override public String issue(Claim claim) {
+    @Override
+    public String issue(Claim claim) {
         Date current = new Date();
         return super.issue(claim.getPayLoad(), jwtProperties.getAudience(), jwtProperties.getSubject(), jwtProperties.getIssuer(), current,
                 new Date(current.getTime() + jwtProperties.getAliveTime().toMillis()));
     }
 
-    @Override public String issue(Claim claim, Duration aliveTime) {
+    @Override
+    public String issue(Claim claim, Duration aliveTime) {
         Date current = new Date();
         return super.issue(claim.getPayLoad(), jwtProperties.getAudience(), jwtProperties.getSubject(), jwtProperties.getIssuer(), current,
                 new Date(current.getTime() + aliveTime.toMillis()));

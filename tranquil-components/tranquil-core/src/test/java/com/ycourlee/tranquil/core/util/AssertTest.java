@@ -14,7 +14,8 @@ public class AssertTest {
 
     private static final Logger log = LoggerFactory.getLogger(AssertTest.class);
 
-    @Test void mainTest() {
+    @Test
+    void mainTest() {
         Integer a = 3;
         Integer b = get2();
 
