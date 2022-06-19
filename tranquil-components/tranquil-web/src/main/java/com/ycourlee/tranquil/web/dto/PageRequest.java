@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 /**
- * @author yooonnjiang
+ * @author yooonn
  * @date 2020.09.29
  */
 @ApiModel

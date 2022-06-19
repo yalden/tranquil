@@ -5,7 +5,7 @@ import com.ycourlee.tranquil.crypto.annotation.Crypto;
 import org.springframework.stereotype.Component;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.16
  */
 @Component

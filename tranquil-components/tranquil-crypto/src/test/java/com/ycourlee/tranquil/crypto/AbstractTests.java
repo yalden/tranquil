@@ -3,7 +3,7 @@ package com.ycourlee.tranquil.crypto;
 import org.junit.jupiter.api.BeforeEach;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class AbstractTests {
 

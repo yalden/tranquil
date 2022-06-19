@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2022.02.19
  */
 public class StringUtilTest {

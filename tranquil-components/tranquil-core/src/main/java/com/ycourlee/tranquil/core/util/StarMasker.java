@@ -6,14 +6,16 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.Nullable;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.10
  */
 public class StarMasker {
 
-    private static final Logger log          = LoggerFactory.getLogger(StarMasker.class);
-    private static final char   asteriskChar = '*';
-    private static final String asterisk     = "*";
+    private StarMasker() {
+    }
+
+    private static final Logger log      = LoggerFactory.getLogger(StarMasker.class);
+    private static final String asterisk = "*";
 
     public static String mask(@Nullable String sensitive, int begin) {
         return mask(sensitive, begin, sensitive == null ? 0 : sensitive.length(), true);
@@ -31,6 +33,15 @@ public class StarMasker {
         return mask(sensitive, 0, end, briefly);
     }
 
+    /**
+     * 对文本的打星处理
+     *
+     * @param sensitive 敏感文本
+     * @param begin     此位置开始打星
+     * @param end       此位置停止打星
+     * @param briefly   若为true, 则星号部分的长度是3
+     * @return 打星的字符串
+     */
     public static String mask(@Nullable String sensitive, int begin, int end, boolean briefly) {
         if (sensitive == null) {
             return "null";
@@ -38,12 +49,9 @@ public class StarMasker {
         if (sensitive.isEmpty()) {
             return sensitive;
         }
-        if (begin > sensitive.length()) {
-            log.warn("String index out of bounds: {}", begin);
+        if (begin > sensitive.length() || begin > end) {
+            log.warn("nothing to mask: {}", begin);
             return sensitive;
-        }
-        if (begin > end) {
-            throw new IllegalArgumentException("Illegal bounds");
         }
         StringBuilder builder = new StringBuilder(sensitive.substring(0, begin));
         int stars = end - begin;

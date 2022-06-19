@@ -39,7 +39,7 @@ Standard Algorithm Name Documentation for JDK 8, role="external", window="_blank
 
 [source,properties,indent=0]
 ----
-crypto.cipher.aes.default-prop.raw-key=your raw secret key
+tranquil.crypto.cipher.aes.default-prop.raw-key=your raw secret key
 ----
 
 NOTE: ``your raw secret key``的长度必须能够被16整除
@@ -48,15 +48,15 @@ NOTE: ``your raw secret key``的长度必须能够被16整除
 
 === 用法
 
-组件提供具有声明式语义的注解来指定需要加解密的Java Bean属性。
+组件提供具有声明式语义的注解来指定需要加解密的对象属性。
 
-首先，声明需要加解密的字段。当一个Java Bean的属性需要加密时，使用注解@Ciphertext标注，声明该属性是密文，委托组件将其加密；需要解密时，使用@Plaintext标注，声明该属性是明文，委托组件将其解密
+首先，声明需要加解密的字段。当一个对象的属性需要加密时，使用注解@Ciphertext标注，声明该属性是密文，委托组件将其加密；需要解密时，使用@Plaintext标注，声明该属性是明文，委托组件将其解密
 
 [source,java,indent=0]
 ----
 @Setter
 @Getter
-public class OneBean {
+public class OneObj {
 
     @Ciphertext
     private String hello;
@@ -68,21 +68,21 @@ public class OneBean {
 }
 ----
 
-NOTE: @Ciphertext、@Plaintext标注的属性必须有getter和setter方法，否则将有异常抛出。
+NOTE: 组件通过反射调用类的getters和setters，@Ciphertext、@Plaintext标注的属性必须有getter和setter方法，否则将有异常抛出。
 
-然后，使用@Crypto注解驱动加解密执行。在该Java Bean的一个实例被方法返回时：
+然后，使用@Crypto注解驱动组件执行加解密。在该对象的一个实例被Cglib代理执行（即方法所在的类是Cglib enhance的类，且方法被代理调用）并返回时：
 
 [source,java,indent=0]
 ----
 public class OneClass {
 
     @Crypto
-    public OneBean simple() {
-        OneBean bean = new OneBean();
-        bean.setHello("this is plaintext");
-        return bean;
+    public OneObj simple() {
+        OneObj obj = new OneObj();
+        obj.setHello("this is plaintext");
+        return obj;
     }
 }
 ----
 
-当simple方法被调用后，访问其返回对象的hello属性，得到的将是一段密文。
+当simple方法被调用后，访问其返回的obj对象的hello属性，得到的将是一段密文。

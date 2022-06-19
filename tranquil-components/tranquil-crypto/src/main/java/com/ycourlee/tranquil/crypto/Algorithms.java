@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.crypto;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.06
  */
 public enum Algorithms {

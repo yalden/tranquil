@@ -4,7 +4,7 @@ package com.ycourlee.tranquil.crypto;
  * <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher">
  * Cipher Algorithm Padding</a>
  *
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.22
  */
 public enum CipherAlgPadding {

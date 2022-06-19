@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * @author yooonnjiang
+ * @author yooonn
  * @date 2020.09.29
  */
 public class DateUtil {

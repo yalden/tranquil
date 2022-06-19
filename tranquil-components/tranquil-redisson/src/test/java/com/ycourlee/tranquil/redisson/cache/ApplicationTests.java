@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.redisson.cache;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

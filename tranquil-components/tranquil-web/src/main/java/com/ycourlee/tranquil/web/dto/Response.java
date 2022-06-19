@@ -13,7 +13,7 @@ import java.util.UUID;
  * <a href="https://gitee.com/y_project/RuoYi/blob/master/ruoyi-common/src/main/java/com/ruoyi/common/core/domain/AjaxResult.java">
  * Idea from source code, AjaxResult.java</a>
  *
- * @author yoooonn
+ * @author yooonn
  */
 public class Response extends HashMap<String, Object> {
 

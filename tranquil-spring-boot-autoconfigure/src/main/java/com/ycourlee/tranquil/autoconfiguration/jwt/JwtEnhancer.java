@@ -9,7 +9,7 @@ import java.time.Duration;
 import java.util.Date;
 
 /**
- * @author yoooonn
+ * @author yooonn
  */
 public class JwtEnhancer extends JwtHelper {
 

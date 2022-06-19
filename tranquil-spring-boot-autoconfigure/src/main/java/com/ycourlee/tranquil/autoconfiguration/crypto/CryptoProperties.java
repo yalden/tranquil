@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.Map;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.11.12
  */
 @Setter

@@ -15,7 +15,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 
 /**
- * @author yoooonn
+ * @author yooonn
  */
 @Setter
 @Getter

@@ -1,10 +1,9 @@
 package com.ycourlee.tranquil.core.util;
 
-import javax.annotation.Nullable;
 import java.util.Collection;
 
 /**
- * @author jiangyong
+ * @author yooonn
  * @date 2020.08.08
  */
 public class StringUtil {

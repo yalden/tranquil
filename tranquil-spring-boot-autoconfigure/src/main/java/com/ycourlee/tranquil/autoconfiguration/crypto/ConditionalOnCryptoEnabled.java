@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import java.lang.annotation.*;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.22
  */
 @Retention(RetentionPolicy.RUNTIME)

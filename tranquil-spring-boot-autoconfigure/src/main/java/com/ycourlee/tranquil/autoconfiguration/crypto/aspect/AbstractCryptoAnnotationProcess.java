@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.17
  */
 abstract class AbstractCryptoAnnotationProcess implements CryptoAnnotationProcess {

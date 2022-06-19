@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# author: yoooonn
+# author: yooonn
 
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
@@ -9,4 +9,4 @@ RESET=$(tput sgr0)
 #set -eux
 set -eux
 
-./mvnw clean compile -f pom.xml
+./mvnw clean -f pom.xml -Pjacoco

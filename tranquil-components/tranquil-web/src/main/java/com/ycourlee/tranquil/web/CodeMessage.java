@@ -5,7 +5,7 @@ package com.ycourlee.tranquil.web;
  * <p>
  * 响应码类需要实现此接口
  *
- * @author yooonnjiang
+ * @author yooonn
  * @date 2020.09.21
  */
 public interface CodeMessage {

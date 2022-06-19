@@ -4,7 +4,7 @@ package com.ycourlee.tranquil.web;
  * API通用返回枚举
  * api common return(response) enums.
  *
- * @author yooonnjiang
+ * @author yooonn
  * @date 2020.09.29
  */
 public enum ApiCode implements CodeMessage {

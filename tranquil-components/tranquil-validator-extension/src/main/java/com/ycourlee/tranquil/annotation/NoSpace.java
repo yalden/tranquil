@@ -13,7 +13,7 @@ import java.lang.annotation.*;
  *     <li>ALL：检查目标元素的每一个字符，如果存在空格，不通过</li>
  * </ul>
  *
- * @author yoooonn
+ * @author yooonn
  * @date 2021.09.10
  */
 @Documented

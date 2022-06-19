@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.jwt;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

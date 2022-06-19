@@ -1,7 +1,7 @@
 package com.ycourlee.tranquil.crypto.exception;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.16
  */
 public class CryptoException extends RuntimeException {

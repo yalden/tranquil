@@ -8,7 +8,7 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.11.15
  */
 public class DefaultRsaKeyPairFactory extends BCJcaJceHelperHolder implements Factory<KeyPair, Integer> {

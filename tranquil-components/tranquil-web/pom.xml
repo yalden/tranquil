@@ -25,6 +25,10 @@
       <artifactId>fastjson</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.ycourlee.tranquil</groupId>
       <artifactId>tranquil-core</artifactId>
     </dependency>

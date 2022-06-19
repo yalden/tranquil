@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 在标注{@link Crypto}注解的方法return前，进行加密/解密
  *
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.06
  * @see com.ycourlee.tranquil.crypto.annotation.Ciphertext
  * @see com.ycourlee.tranquil.crypto.annotation.Plaintext

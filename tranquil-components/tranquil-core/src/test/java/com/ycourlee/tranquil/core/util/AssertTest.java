@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2022.02.19
  */
 public class AssertTest {

@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * api response definition.
  *
- * @author jiangyong
+ * @author yooonn
  * @date 2020.08.28
  */
 public class ApiResponse<T> implements Serializable {

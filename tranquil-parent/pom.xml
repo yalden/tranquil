@@ -23,7 +23,7 @@
 
   <properties>
     <bcprov-jdk15on.version>1.69</bcprov-jdk15on.version>
-    <fastjson.version>1.2.72</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
     <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
     <git.url>http://github.com/yoooonn/tranquil</git.url>

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.16
  */
 public class AesCryptoTest extends ApplicationContextRunningConfiguration {

@@ -3,7 +3,7 @@ package com.ycourlee.tranquil.crypto.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author yoooonn
+ * @author yooonn
  * @date 2021.12.16
  */
 @Target(ElementType.METHOD)

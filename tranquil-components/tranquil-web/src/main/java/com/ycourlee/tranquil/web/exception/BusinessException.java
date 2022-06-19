@@ -4,7 +4,7 @@ import com.ycourlee.tranquil.web.ApiCode;
 import com.ycourlee.tranquil.web.CodeMessage;
 
 /**
- * @author yooonnjiang
+ * @author yooonn
  * @date 2020.09.29
  */
 public class BusinessException extends RuntimeException {
