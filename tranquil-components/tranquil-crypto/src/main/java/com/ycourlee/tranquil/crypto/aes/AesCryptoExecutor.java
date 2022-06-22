@@ -1,5 +1,6 @@
 package com.ycourlee.tranquil.crypto.aes;
 
+import com.ycourlee.tranquil.core.Factory;
 import com.ycourlee.tranquil.core.util.Assert;
 import com.ycourlee.tranquil.core.util.StringUtil;
 import com.ycourlee.tranquil.crypto.Algorithms;
@@ -9,7 +10,6 @@ import com.ycourlee.tranquil.crypto.CipherParam;
 import com.ycourlee.tranquil.crypto.exception.CryptoException;
 import com.ycourlee.tranquil.crypto.factory.DefaultAesSecretKeyFactory;
 import com.ycourlee.tranquil.crypto.factory.DefaultCipherFactory;
-import com.ycourlee.tranquil.crypto.factory.Factory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

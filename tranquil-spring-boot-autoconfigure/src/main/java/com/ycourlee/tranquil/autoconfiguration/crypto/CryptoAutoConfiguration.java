@@ -1,11 +1,11 @@
 package com.ycourlee.tranquil.autoconfiguration.crypto;
 
+import com.ycourlee.tranquil.core.Factory;
 import com.ycourlee.tranquil.crypto.CipherParam;
 import com.ycourlee.tranquil.crypto.aes.AesCryptoExecutor;
 import com.ycourlee.tranquil.crypto.annotation.Crypto;
 import com.ycourlee.tranquil.crypto.factory.DefaultAesSecretKeyFactory;
 import com.ycourlee.tranquil.crypto.factory.DefaultCipherFactory;
-import com.ycourlee.tranquil.crypto.factory.Factory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

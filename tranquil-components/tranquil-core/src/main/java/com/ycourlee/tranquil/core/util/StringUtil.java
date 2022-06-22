@@ -1,18 +1,16 @@
 package com.ycourlee.tranquil.core.util;
 
-import java.util.Collection;
-
 /**
  * @author yooonn
  * @date 2020.08.08
  */
 public class StringUtil {
 
-    public static final String NULL            = null;
     public static final String EMPTY           = "";
     public static final String WHITESPACE      = " ";
     public static final String SEMINAL         = "-";
     public static final String UNDERLINE       = "_";
+    public static final String COLON           = ":";
     public static final String SLASH           = "/";
     public static final char   WHITESPACE_CHAR = ' ';
     public static final char   SEMINAL_CHAR    = '-';
@@ -35,17 +33,6 @@ public class StringUtil {
     }
 
     /**
-     * @param coll collection obj.
-     * @return if not empty
-     * @see CollectionUtil#isEmpty(Collection)
-     * @since 1.0.7
-     */
-    @Deprecated
-    public static boolean isEmpty(Collection<?> coll) {
-        return coll == null || coll.isEmpty();
-    }
-
-    /**
      * @param string string
      * @return true, if characters in string are all ' '
      */
@@ -64,17 +51,6 @@ public class StringUtil {
      */
     public static boolean isNotEmpty(String string) {
         return !(string == null || EMPTY.equals(string));
-    }
-
-    /**
-     * @param coll collection obj.
-     * @return if not empty
-     * @see CollectionUtil#isNotEmpty(Collection)
-     * @since 1.0.7
-     */
-    @Deprecated
-    public static boolean isNotEmpty(Collection<?> coll) {
-        return !(coll == null || coll.isEmpty());
     }
 
     /**

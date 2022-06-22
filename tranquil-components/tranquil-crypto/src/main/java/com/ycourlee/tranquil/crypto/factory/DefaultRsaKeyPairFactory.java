@@ -1,5 +1,6 @@
 package com.ycourlee.tranquil.crypto.factory;
 
+import com.ycourlee.tranquil.core.Factory;
 import com.ycourlee.tranquil.crypto.Algorithms;
 import com.ycourlee.tranquil.crypto.BCJcaJceHelperHolder;
 

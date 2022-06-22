@@ -40,7 +40,7 @@ public class FileUtil {
             }
             bufferedOutputStream.flush();
         } catch (IOException e) {
-            log.error("写入失败, filepath = {}, e = {}", filepath, e.getMessage());
+            log.error("write to file error, filepath: {}", filepath, e);
         } finally {
             try {
                 if (bufferedOutputStream != null) {
@@ -50,7 +50,7 @@ public class FileUtil {
                     fileOutputStream.close();
                 }
             } catch (IOException e) {
-                log.error("IO关闭失败, e = {}", e.getMessage());
+                log.error("IO close error, filepath: {}", filepath, e);
             }
         }
     }
@@ -70,10 +70,10 @@ public class FileUtil {
         if (file.isFile()) {
             // noinspection ResultOfMethodCallIgnored
             file.delete();
-            log.trace("delete a file, filepath = {}", filepath);
+            log.trace("delete a file, filepath: {}", filepath);
         } else if (file.isDirectory()) {
             File[] files = file.listFiles();
-            log.trace("delete all files in directory = {}, they are output in log", filepath);
+            log.trace("delete all files in directory: {}, they are output in log", filepath);
             if (files == null) {
                 return;
             }

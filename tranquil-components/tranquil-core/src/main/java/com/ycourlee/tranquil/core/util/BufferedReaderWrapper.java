@@ -22,7 +22,7 @@ public class BufferedReaderWrapper {
         try {
             reader = new BufferedReader(new FileReader(file));
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalStateException(e);
         }
     }
 

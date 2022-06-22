@@ -17,7 +17,7 @@ public @interface Lockable {
     /**
      * 需要获取的锁, 支持获取联锁
      *
-     * @return
+     * @return 锁名称
      */
     String[] keys();
 

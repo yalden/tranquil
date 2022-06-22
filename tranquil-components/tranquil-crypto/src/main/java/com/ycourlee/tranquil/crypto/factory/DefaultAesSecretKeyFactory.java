@@ -1,5 +1,6 @@
 package com.ycourlee.tranquil.crypto.factory;
 
+import com.ycourlee.tranquil.core.Factory;
 import com.ycourlee.tranquil.core.util.Assert;
 import com.ycourlee.tranquil.crypto.Algorithms;
 
