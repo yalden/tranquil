@@ -44,7 +44,7 @@ public class RedissonTemplateTests {
         template.executeInLock(Collections.singleton("Umbrella:rain"), 0, () -> null);
         template.executeInLock(Collections.singleton("Umbrella:rain"), -1, () -> null);
         template.executeInLock(Collections.singleton("Umbrella:rain"), -2, () -> null);
-        //  对于联锁, 注意它实现leaseTime的细节, 只有 -1 才会尝试锁一次, 0 2 在lua的pExpire阶段就被立即释放了
+        // 对于联锁, 注意它实现leaseTime的细节, 只有 -1 才会尝试锁一次, 0 -2 在lua的pExpire阶段就被立即释放了
         assertThrows(WaitLockTimeoutException.class, () -> {
             template.executeInLock(Arrays.asList("Umbrella:rain", "Umbrella:water"), 0, () -> null);
         });
@@ -56,9 +56,9 @@ public class RedissonTemplateTests {
     }
 
     /**
-     * 测试waitTime; 若waitTime <= 0则只会获取一次
+     * 测试waitTime
      *
-     * @throws InterruptedException
+     * @throws InterruptedException e
      */
     @Test
     void waitTimeTest() throws InterruptedException {
