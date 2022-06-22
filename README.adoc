@@ -1,11 +1,50 @@
 = tranquil
+:toc: right
+:sectanchors:
+:sectnumlevels: 4
+:author: yooonn
+:description: Tranquil Document
+:sectnums:
+:toclevels: 3
 
+[[version_compatible]]
 Java convenient and efficient components.
 
-== version compatable
+== version compatible
+
+|===
+| Tranquil | Spring Boot
+
+| 1.0.0*
+| 2.3.12.RELEASE
+|===
+
+使用tranquil, 可以导入版本bom:
+
+[source,xml]
+.pom.xml
+----
+<dependencyManagement>
+  <dependencies>
+    <!-- ... -->
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-dependencies</artifactId>
+      <version>${tranquil-latest.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <!-- ... -->
+  </dependencies>
+</dependencyManagement>
+----
+
+随后再引入相应的组件
 
 == components
 
-=== link:tranquil-spring-boot-starters/tranquil-crypto-spring-boot-starter/README.adoc[crypto]
+include::tranquil-spring-boot-starters/tranquil-crypto-spring-boot-starter/README.adoc[leveloffset=+2]
 
+include::tranquil-spring-boot-starters/tranquil-jwt-spring-boot-starter/README.adoc[leveloffset=+2]
 
+include::tranquil-spring-boot-starters/tranquil-redisson-spring-boot-starter/README.adoc[leveloffset=+2]

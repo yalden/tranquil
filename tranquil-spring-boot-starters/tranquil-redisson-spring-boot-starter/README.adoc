@@ -1,3 +1,20 @@
-= tranquil redisson
+= Annotation driven Redisson Lock
 
-==
+注解驱动的redisson锁组件, 当前支持单锁``RedissonLock``和联锁``RedissonMultiLock``
+
+== Quickstart
+
+=== 配置
+
+在pom.xml中添加
+
+[source,xml,indent=0]
+----
+<!--......-->
+<dependency>
+    <groupId>com.ycourlee.tranquil</groupId>
+    <artifactId>tranquil-redisson-spring-boot-starter</artifactId>
+</dependency>
+<!--......-->
+----
+

@@ -30,7 +30,6 @@ Standard Algorithm Name Documentation for JDK 8, role="external", window="_blank
 <dependency>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
-    <version>${latest.version}</version>
 </dependency>
 <!--......-->
 ----
