@@ -32,6 +32,7 @@
   <properties>
     <revision>1.0.0-SNAPSHOT</revision>
 
+    <all-ut>false</all-ut>
     <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
     <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
     <git.url>http://github.com/yoooonn/tranquil</git.url>
@@ -100,6 +101,11 @@
             <version>5.6.3</version>
           </dependency>
         </dependencies>
+        <configuration>
+          <systemPropertyVariables>
+            <all-ut>${all-ut}</all-ut>
+          </systemPropertyVariables>
+        </configuration>
       </plugin>
     </plugins>
   </build>

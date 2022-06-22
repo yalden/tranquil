@@ -1,12 +1,14 @@
 package com.ycourlee.tranquil.redisson;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,6 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @author yongjiang
  * @date 2022.06.22
  */
+@EnabledIfSystemProperty(named = "all-ut", matches = "true")
 public class RedissonTemplateTests {
 
     private static final Logger log = LoggerFactory.getLogger(RedissonTemplateTests.class);
@@ -45,14 +48,12 @@ public class RedissonTemplateTests {
         template.executeInLock(Collections.singleton("Umbrella:rain"), -1, () -> null);
         template.executeInLock(Collections.singleton("Umbrella:rain"), -2, () -> null);
         // 对于联锁, 注意它实现leaseTime的细节, 只有 -1 才会尝试锁一次, 0 -2 在lua的pExpire阶段就被立即释放了
-        assertThrows(WaitLockTimeoutException.class, () -> {
-            template.executeInLock(Arrays.asList("Umbrella:rain", "Umbrella:water"), 0, () -> null);
-        });
+        assertThrows(WaitLockTimeoutException.class, () ->
+                template.executeInLock(Arrays.asList("Umbrella:rain", "Umbrella:water"), 0, () -> null));
         template.executeInLock(Arrays.asList("Umbrella:rain", "Umbrella:water"), -1, () -> null);
 
-        assertThrows(WaitLockTimeoutException.class, () -> {
-            template.executeInLock(Arrays.asList("Umbrella:rain", "Umbrella:water"), -2, () -> null);
-        });
+        assertThrows(WaitLockTimeoutException.class, () ->
+                template.executeInLock(Arrays.asList("Umbrella:rain", "Umbrella:water"), -2, () -> null));
     }
 
     /**
@@ -62,6 +63,9 @@ public class RedissonTemplateTests {
      */
     @Test
     void waitTimeTest() throws InterruptedException {
+        long min10InMillis = Duration.ofMinutes(10).getSeconds() * 1000;
+        long just = System.currentTimeMillis();
+
         RLock opt = template.getLock("manual opt");
         AtomicBoolean flag = new AtomicBoolean(false);
         if (opt.tryLock(5, -1, TimeUnit.SECONDS)) {
@@ -82,6 +86,9 @@ public class RedissonTemplateTests {
                 for (int i = 0; i < 10; i++) {
                     futures.add(executorService.submit(() -> {
                         while (!flag.get()) {
+                            if (System.currentTimeMillis() - just > min10InMillis) {
+                                break;
+                            }
                         }
                         template.executeInLock(Collections.singleton("Umbrella:rain"), 20, () -> {
                             log.info("{} acquired lock sleep {}s", Thread.currentThread().getName(), 1);
@@ -96,6 +103,9 @@ public class RedissonTemplateTests {
                     futures.add(executorService.submit(() -> {
                         try {
                             while (!flag.get()) {
+                                if (System.currentTimeMillis() - just > min10InMillis) {
+                                    break;
+                                }
                             }
                             template.executeInLock(Collections.singleton("Umbrella:rain"), () -> {
                                 throw new IllegalStateException("cannot enter there.");
