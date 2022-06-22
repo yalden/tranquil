@@ -1,11 +1,13 @@
 package com.ycourlee.tranquil.autoconfiguration.redisson;
 
 import com.ycourlee.tranquil.core.CommonConstants;
+import com.ycourlee.tranquil.redisson.WaitLockTimeoutException;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.util.StopWatch;
 
 import java.util.Objects;
@@ -19,6 +21,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2022.06.19
  */
 @Disabled("High concurrency tests require high hardware performance to run")
+@TestPropertySource(properties = {
+        "logging.level.com.ycourlee.tranquil.redisson.RedissonTemplate = trace"
+})
 public class WaitLockTimeoutExceptionTests extends RedissonAnnotationAutoConfigurationTests {
 
     private static final Logger log = LoggerFactory.getLogger(LockableTests.class);
@@ -28,7 +33,7 @@ public class WaitLockTimeoutExceptionTests extends RedissonAnnotationAutoConfigu
 
     @Test
     void multiLockTest() throws InterruptedException {
-        int threadCnt = 10000;
+        int threadCnt = 100;
         Long sharedA = lockableTests.sharedAToZero();
         Long sharedB = lockableTests.sharedBToZero();
         CountDownLatch localLatch = new CountDownLatch(threadCnt * 3);
@@ -49,27 +54,6 @@ public class WaitLockTimeoutExceptionTests extends RedissonAnnotationAutoConfigu
         localLatch.await();
         assertEquals(sharedA + 2 * threadCnt, lockableTests.sharedA());
         assertEquals(sharedB + 2 * threadCnt, lockableTests.sharedB());
-    }
-
-    @Test
-    void multiLockNoWaitTest() throws InterruptedException {
-        boolean fullSuccess = true;
-        for (int c = 0; c < CommonConstants.TEST_CASE_ONE_THOUSAND; c++) {
-            int threadCnt = 100;
-            Long sharedA = lockableTests.sharedAToZero();
-            CountDownLatch localLatch = new CountDownLatch(threadCnt);
-            for (int i = 0; i < threadCnt; i++) {
-                new Thread(() -> {
-                    lockableTests.incrAInLockNoWait();
-                    localLatch.countDown();
-                }).start();
-            }
-            localLatch.await();
-            if (!Objects.equals(sharedA + 100, lockableTests.sharedA())) {
-                fullSuccess = false;
-            }
-        }
-        assertTrue(fullSuccess);
     }
 
     @Test

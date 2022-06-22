@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+  <property name="TRANQUIL" value="TRANQUIL"/>
+  <property name="SIMPLE_PATTERN" value="%msg%n"/>
+  <property name="FULL_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+  <contextName>${TRANQUIL}</contextName>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>${FULL_PATTERN}</Pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+<!--  <logger name="ch.qos.logback" level="off"/>-->
+  <logger name="com.ycourlee.tranquil.redisson.RedissonTemplate" level="trace"/>
+  <root>
+    <level value="INFO"/>
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

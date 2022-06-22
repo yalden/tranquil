@@ -42,6 +42,11 @@
       <optional>true</optional>
     </dependency>
     <dependency>
+      <groupId>io.pebbletemplates</groupId>
+      <artifactId>pebble</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
       <groupId>org.redisson</groupId>
       <artifactId>redisson-spring-boot-starter</artifactId>
       <optional>true</optional>

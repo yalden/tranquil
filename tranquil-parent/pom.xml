@@ -33,6 +33,7 @@
     <main.basedir>${project.basedir}/..</main.basedir>
     <pebble-spring-boot-starter.version>3.1.5</pebble-spring-boot-starter.version>
     <pebble-spring5.version>3.1.5</pebble-spring5.version>
+    <pebble.version>3.1.5</pebble.version>
     <redisson-spring-boot-starter.version>3.16.8</redisson-spring-boot-starter.version>
     <redisson.version>3.16.8</redisson.version>
     <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
@@ -89,6 +90,11 @@
         <groupId>io.pebbletemplates</groupId>
         <artifactId>pebble-spring5</artifactId>
         <version>${pebble-spring5.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.pebbletemplates</groupId>
+        <artifactId>pebble</artifactId>
+        <version>${pebble.version}</version>
       </dependency>
       <dependency>
         <groupId>org.redisson</groupId>

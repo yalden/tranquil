@@ -1,6 +1,7 @@
 package com.ycourlee.tranquil.autoconfiguration.redisson;
 
 import com.ycourlee.tranquil.redisson.annotation.Lockable;
+import lombok.SneakyThrows;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
@@ -23,9 +24,11 @@ public class LockableTests {
         sharedA++;
     }
 
-    @Lockable(keys = "shared:num:incr", waitTime = 0)
+    @SneakyThrows
+    @Lockable(keys = "shared:num:incr")
     public void incrAInLockNoWait() {
         sharedA++;
+        Thread.sleep(1);
     }
 
     @Lockable(keys = "shared:num1:incr", waitTime = 5)

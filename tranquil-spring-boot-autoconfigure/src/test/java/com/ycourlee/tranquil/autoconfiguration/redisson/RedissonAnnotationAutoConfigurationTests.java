@@ -31,18 +31,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class RedissonAnnotationAutoConfigurationTests extends AbstractAutoConfigurationTests {
 
     @Autowired
-    @Qualifier("pebbleLoader")
-    public  Loader<?>        loader;
-    @Autowired
     private RedissonTemplate redissonTemplate;
-    @Autowired
-    private LockableAspect   lockableAspect;
 
     @BeforeEach
     public void beanTest() {
         assertNotNull(redissonTemplate);
-        assertNotNull(lockableAspect);
-        assertNotNull(loader);
     }
 
     @Configuration
