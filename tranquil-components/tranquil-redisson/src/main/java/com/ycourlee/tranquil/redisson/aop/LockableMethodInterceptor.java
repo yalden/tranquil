@@ -8,12 +8,18 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.AopProxyUtils;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.ParameterNameDiscoverer;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.util.Assert;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -24,7 +30,7 @@ import java.util.*;
  * @author yongjiang
  * @date 2022.06.22
  */
-public class LockableMethodInterceptor implements MethodInterceptor {
+public class LockableMethodInterceptor implements MethodInterceptor, BeanFactoryAware, SmartInitializingSingleton {
 
     private static final Logger log = LoggerFactory.getLogger(LockableMethodInterceptor.class);
 
@@ -32,8 +38,9 @@ public class LockableMethodInterceptor implements MethodInterceptor {
 
     private RedissonTemplate redissonTemplate;
     private PebbleEngine     pebbleEngine;
+    private BeanFactory      beanFactory;
 
-    public LockableMethodInterceptor(RedissonTemplate redissonTemplate, PebbleEngine pebbleEngine) {
+    public LockableMethodInterceptor(RedissonTemplate redissonTemplate, @Nullable PebbleEngine pebbleEngine) {
         this.redissonTemplate = redissonTemplate;
         this.pebbleEngine = pebbleEngine;
     }
@@ -103,5 +110,16 @@ public class LockableMethodInterceptor implements MethodInterceptor {
             Map.put(paramNames[i], args[i]);
         }
         return Map;
+    }
+
+    @Override
+    public void setBeanFactory(@Nonnull BeanFactory beanFactory) throws BeansException {
+        this.beanFactory = beanFactory;
+    }
+
+    @Override
+    public void afterSingletonsInstantiated() {
+        pebbleEngine = beanFactory.getBean(PebbleEngine.class);
+        Assert.notNull(pebbleEngine, "lockable Method Interceptor initializing error");
     }
 }

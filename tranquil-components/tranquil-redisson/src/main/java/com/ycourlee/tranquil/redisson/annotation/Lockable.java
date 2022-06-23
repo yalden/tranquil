@@ -1,5 +1,7 @@
 package com.ycourlee.tranquil.redisson.annotation;
 
+import org.springframework.core.annotation.AliasFor;
+
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +21,16 @@ public @interface Lockable {
      *
      * @return 锁名称
      */
-    String[] keys();
+    @AliasFor("value")
+    String[] keys() default {};
+
+    /**
+     * 需要获取的锁, 支持获取联锁
+     *
+     * @return 锁名称
+     */
+    @AliasFor("keys")
+    String[] value() default {};
 
     /**
      * 默认不等待

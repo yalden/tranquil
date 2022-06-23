@@ -1,12 +1,10 @@
 package com.ycourlee.tranquil.redisson.aop;
 
 import org.aopalliance.aop.Advice;
-import org.springframework.aop.Advisor;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractPointcutAdvisor;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * @author yongjiang
@@ -22,7 +20,7 @@ public class LockableAnnotationAdvisor extends AbstractPointcutAdvisor {
     public LockableAnnotationAdvisor(Advice advice, Pointcut pointcut) {
         this.advice = advice;
         this.pointcut = pointcut;
-        setOrder(HIGHEST_PRECEDENCE);
+        setOrder(LOWEST_PRECEDENCE);
     }
 
     @Nonnull

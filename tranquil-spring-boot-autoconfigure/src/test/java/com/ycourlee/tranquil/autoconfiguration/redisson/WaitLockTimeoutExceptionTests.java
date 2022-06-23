@@ -1,9 +1,8 @@
 package com.ycourlee.tranquil.autoconfiguration.redisson;
 
 import com.ycourlee.tranquil.core.CommonConstants;
-import com.ycourlee.tranquil.redisson.WaitLockTimeoutException;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +13,17 @@ import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Consumer;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
+ * High concurrency tests require high hardware performance to run.
+ * Not run this by default.
+ *
  * @author yooonn
  * @date 2022.06.19
  */
-@Disabled("High concurrency tests require high hardware performance to run")
+@EnabledIfSystemProperty(named = "all-ut", matches = "true")
 @TestPropertySource(properties = {
         "logging.level.com.ycourlee.tranquil.redisson.RedissonTemplate = trace"
 })

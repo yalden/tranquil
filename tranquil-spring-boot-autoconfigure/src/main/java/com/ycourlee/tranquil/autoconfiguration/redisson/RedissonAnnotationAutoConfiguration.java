@@ -2,7 +2,6 @@ package com.ycourlee.tranquil.autoconfiguration.redisson;
 
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.boot.autoconfigure.PebbleAutoConfiguration;
-import com.mitchellbosecke.pebble.boot.autoconfigure.PebbleProperties;
 import com.mitchellbosecke.pebble.loader.Loader;
 import com.mitchellbosecke.pebble.loader.StringLoader;
 import com.ycourlee.tranquil.redisson.RedissonTemplate;
@@ -21,7 +20,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
@@ -33,7 +31,6 @@ import org.springframework.core.annotation.Order;
 @ConditionalOnBean({RedissonClient.class})
 @AutoConfigureAfter({RedissonAutoConfiguration.class})
 @ConditionalOnProperty(prefix = "tranquil.redisson", name = "enable", havingValue = "true", matchIfMissing = true)
-@EnableAspectJAutoProxy
 public class RedissonAnnotationAutoConfiguration {
 
     /**
@@ -45,12 +42,9 @@ public class RedissonAnnotationAutoConfiguration {
     @Bean("pebbleLoader")
     @Order(Ordered.HIGHEST_PRECEDENCE)
     @ConditionalOnClass(PebbleEngine.class)
-    public Loader<?> pebbleLoader(PebbleProperties properties) {
-        StringLoader loader = new StringLoader();
-        loader.setPrefix(properties.getPrefix());
-        loader.setSuffix(properties.getSuffix());
-        loader.setCharset(properties.getCharsetName());
-        return loader;
+    public Loader<?> pebbleLoader() {
+        // fake setters appeared in string loader
+        return new StringLoader();
     }
 
     @Bean
@@ -72,17 +66,14 @@ public class RedissonAnnotationAutoConfiguration {
      * 重写其中生成key的方法, 再override这个bean
      *
      * @param redissonTemplate redisson template
-     * @param pebbleEngine     pebble engine
      * @return lockable interceptor
      */
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnBean(name = "pebbleEngine")
     public LockableMethodInterceptor tranquilLockableMethodInterceptor(
-            RedissonTemplate redissonTemplate,
-            @Qualifier("pebbleEngine") PebbleEngine pebbleEngine
+            RedissonTemplate redissonTemplate
     ) {
-        return new LockableMethodInterceptor(redissonTemplate, pebbleEngine);
+        return new LockableMethodInterceptor(redissonTemplate, null);
     }
 
     @Bean
