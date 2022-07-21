@@ -3,6 +3,7 @@ package com.ycourlee.tranquil.redisson.annotation;
 import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -12,8 +13,9 @@ import java.util.concurrent.TimeUnit;
  * @date 2022.04.03
  */
 @Documented
+@Inherited
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 public @interface Lockable {
 
     /**
@@ -40,6 +42,14 @@ public @interface Lockable {
     long waitTime() default -1;
 
     /**
+     * 该因子可使waitTime上浮{@link ThreadLocalRandom#nextLong(long)}, 其中bound参数为waitFactor.<br/>
+     * 默认不上浮
+     *
+     * @return 等待锁时间上浮因子
+     */
+    long waitFactor() default 0;
+
+    /**
      * 默认最大10秒释放锁. 若要开启续期, 需要设为-1, 这样redisson会每30秒续期一次（观察狗模式, 有消耗, 理性使用续期方式）
      *
      * @return
@@ -47,7 +57,7 @@ public @interface Lockable {
     long leaseTime() default 10;
 
     /**
-     * 默认{@link Lockable#waitTime()}和{@link Lockable#leaseTime()}的时间单位为秒
+     * 默认{@link Lockable#waitTime()}, {@link Lockable#waitFactor()}和{@link Lockable#leaseTime()}的时间单位为秒
      *
      * @return 时间单位
      */

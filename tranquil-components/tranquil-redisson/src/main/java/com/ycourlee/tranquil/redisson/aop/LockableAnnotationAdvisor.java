@@ -14,13 +14,19 @@ public class LockableAnnotationAdvisor extends AbstractPointcutAdvisor {
 
     private static final long serialVersionUID = -7011908877621636112L;
 
-    private Advice advice;
+    private Advice   advice;
     private Pointcut pointcut;
 
     public LockableAnnotationAdvisor(Advice advice, Pointcut pointcut) {
         this.advice = advice;
         this.pointcut = pointcut;
         setOrder(LOWEST_PRECEDENCE);
+    }
+
+    public LockableAnnotationAdvisor(Advice advice, Pointcut pointcut, int order) {
+        this.advice = advice;
+        this.pointcut = pointcut;
+        setOrder(order);
     }
 
     @Nonnull
