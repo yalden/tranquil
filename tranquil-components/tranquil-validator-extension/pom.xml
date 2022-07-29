@@ -12,9 +12,6 @@
   <name>tranquil validator extension</name>
   <description>tranquil validator extension</description>
   <properties>
-    <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
-    <git.developerConnection>scm:git:ssh://git@github.com/yoooonn/tranquil.git</git.developerConnection>
-    <git.url>http://github.com/yoooonn/tranquil</git.url>
     <main.basedir>${project.basedir}/../..</main.basedir>
   </properties>
   <scm>
