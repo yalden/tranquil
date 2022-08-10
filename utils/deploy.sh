@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # author: yooonn
 
 RED=$(tput setaf 1)
@@ -7,15 +7,14 @@ BLUE=$(tput setaf 4)
 RESET=$(tput sgr0)
 
 greenText() {
-    echo "${GREEN}$1${RESET}"
+    echo -e "${GREEN}$1${RESET}"
 }
 
 redText() {
-    echo "${RED}$1${RESET}"
+    echo -e "${RED}$1${RESET}"
 }
 
-#set -eux
-set -eux
+set -eu
 
 read -r -p "Will execute './mvnw clean deploy -Prelease' \
 $(redText 'Are You Sure?') [Y/n] " input
@@ -24,7 +23,7 @@ case $input in
 [yY][eE][sS] | [yY])
     greenText "Yes"
     ./mvnw clean deploy -Prelease
-    greenText '\n\nDone'
+    greenText '\nDone'
     exit 0
     ;;
 
