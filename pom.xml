@@ -10,7 +10,7 @@
 
   <groupId>com.ycourlee.tranquil</groupId>
   <artifactId>tranquil</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>tranquil</name>
   <description>tranquil</description>
