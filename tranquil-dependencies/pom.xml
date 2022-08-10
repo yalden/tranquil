@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>tranquil-dependencies</artifactId>
@@ -27,57 +27,57 @@
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-core</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-annotation</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-crypto-spring-boot-starter</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-jwt</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-jwt-spring-boot-starter</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-redisson</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-redisson-spring-boot-starter</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-spring-boot-autoconfigure</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-validator-extension</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-web</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

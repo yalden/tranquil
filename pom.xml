@@ -10,7 +10,7 @@
 
   <groupId>com.ycourlee.tranquil</groupId>
   <artifactId>tranquil</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>tranquil</name>
   <description>tranquil</description>
@@ -29,8 +29,6 @@
     </license>
   </licenses>
   <properties>
-    <revision>1.0.0-SNAPSHOT</revision>
-
     <all-ut>false</all-ut>
     <doc.name>document</doc.name>
     <git.connection>scm:git:git://github.com/yoooonn/tranquil.git</git.connection>
