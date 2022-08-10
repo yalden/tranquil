@@ -10,6 +10,8 @@
 [[version_compatible]]
 Java convenient and efficient components.
 
+IMPORTANT: 若对asciidoc的支持差, 本文档会出现未渲染的情况. 可clone此repo到本地, 并生成html和pdf版本文档进行查看, 通过: ``git clone -b 1.x REPO.git && cd tranquil && ./utils/process-asciidoc.sh``. 以上, 则文档生成在``target/generated-docs/``
+
 == version compatible
 
 |===
@@ -39,6 +41,8 @@ Java convenient and efficient components.
 </dependencyManagement>
 ----
 
+IMPORTANT: tranquil-latest.version: 1.0.0-SNAPSHOT
+
 随后再引入相应的组件
 
 == components
@@ -48,3 +52,11 @@ include::tranquil-spring-boot-starters/tranquil-crypto-spring-boot-starter/READM
 include::tranquil-spring-boot-starters/tranquil-jwt-spring-boot-starter/README.adoc[leveloffset=+2]
 
 include::tranquil-spring-boot-starters/tranquil-redisson-spring-boot-starter/README.adoc[leveloffset=+2]
+
+== pull request
+
+项目提供较完整的CI/CD脚本(in utils), 可以利用这些进行本地化工作. 后续也会引入gitlab的pipeline.
+
+== issue
+
+如发现任何问题, 欢迎指出. 提issue时请选择bug template, 它会收集一些问题相关的描述.

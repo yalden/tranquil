@@ -19,7 +19,6 @@ import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.util.Assert;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -40,9 +39,13 @@ public class LockableMethodInterceptor implements MethodInterceptor, BeanFactory
     private PebbleEngine     pebbleEngine;
     private BeanFactory      beanFactory;
 
-    public LockableMethodInterceptor(RedissonTemplate redissonTemplate, @Nullable PebbleEngine pebbleEngine) {
+    public LockableMethodInterceptor(RedissonTemplate redissonTemplate, PebbleEngine pebbleEngine) {
         this.redissonTemplate = redissonTemplate;
         this.pebbleEngine = pebbleEngine;
+    }
+
+    public LockableMethodInterceptor(RedissonTemplate redissonTemplate) {
+        this.redissonTemplate = redissonTemplate;
     }
 
     @Override
@@ -69,7 +72,10 @@ public class LockableMethodInterceptor implements MethodInterceptor, BeanFactory
                     try {
                         return invocation.proceed();
                     } catch (Throwable e) {
-                        throw new RuntimeException(e);
+                        if (e instanceof RuntimeException) {
+                            throw ((RuntimeException) e);
+                        }
+                        throw new RuntimeException(e.getMessage(), e);
                     }
                 });
     }

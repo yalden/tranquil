@@ -32,7 +32,7 @@ jobs:
           redis-port: 6382
 
       - name: Build with Maven
-        run: ./mvnw -B verify -s ./.mvn/settings.xml -Dall-ut=true
+        run: ./mvnw -B verify -s ./.mvn/settings.xml -Possrh-repo -Dall-ut=true -Drepo.mirror.enabled=false
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}

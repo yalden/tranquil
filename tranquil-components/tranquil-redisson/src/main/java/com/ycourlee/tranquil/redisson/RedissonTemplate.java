@@ -68,12 +68,16 @@ public class RedissonTemplate {
         return rLocks;
     }
 
-    public Object executeInLock(Collection<String> keyNames, long waitTime, Supplier<Object> supplier) {
-        return executeInLock(keyNames, waitTime, 10, supplier);
+    public <T> T executeInLock(Collection<String> keyNames, long waitTime, Supplier<T> supplier) {
+        return executeInLock(keyNames, waitTime, 10, TimeUnit.SECONDS, supplier);
     }
 
-    public Object executeInLock(Collection<String> keyNames, Supplier<Object> supplier) {
-        return executeInLock(keyNames, -1, 10, supplier);
+    public <T> T executeInLock(Collection<String> keyNames, Supplier<T> supplier) {
+        return executeInLock(keyNames, -1, 10, TimeUnit.SECONDS, supplier);
+    }
+
+    public <T> T executeInLock(Collection<String> keyNames, long waitTime, long leaseTime, Supplier<T> supplier) {
+        return executeInLock(keyNames, waitTime, leaseTime, TimeUnit.SECONDS, supplier);
     }
 
     /**
@@ -82,16 +86,17 @@ public class RedissonTemplate {
      * @param keyNames  锁名称, 至少一个
      * @param waitTime  锁等待时间. -1: 不等待, 只尝试获取一次
      * @param leaseTime 倒计leaseTime, 到0则释放锁, 不考虑supplier. -1: 开启锁续期; 其他,
+     * @param unit      时间单位
      * @param supplier  获取到锁后的supplier
      * @return result of supplier
-     * @see {@link Lockable}
+     * @see Lockable
      */
-    public Object executeInLock(Collection<String> keyNames, long waitTime, long leaseTime, Supplier<Object> supplier) {
+    public <T> T executeInLock(Collection<String> keyNames, long waitTime, long leaseTime, TimeUnit unit, Supplier<T> supplier) {
         Assert.notEmpty(keyNames, "give one key at least.");
         RLock lock = getMultiLock(keyNames);
         String keyNameString = keyNames.toString();
         try {
-            if (lock.tryLock(waitTime, leaseTime, TimeUnit.SECONDS)) {
+            if (lock.tryLock(waitTime, leaseTime, unit)) {
                 log.debug("locked {}", keyNames);
                 try {
                     return supplier.get();

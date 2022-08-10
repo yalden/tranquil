@@ -9,4 +9,4 @@ RESET=$(tput sgr0)
 #set -eux
 set -eux
 
-./mvnw clean install -Drevision=lv -Prelease,jacoco
+./mvnw clean install -Drevision=lv -Prelease -Dmaven.test.skip=true "$@"

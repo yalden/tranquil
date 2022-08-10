@@ -13,6 +13,7 @@ import org.redisson.spring.starter.RedissonAutoConfiguration;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -20,6 +21,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Role;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
@@ -48,6 +50,7 @@ public class RedissonAnnotationAutoConfiguration {
     }
 
     @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     @ConditionalOnMissingBean
     public RedissonTemplate tranquilRedissonTemplate(
             @Qualifier("redisson") RedissonClient redissonClient
@@ -56,7 +59,8 @@ public class RedissonAnnotationAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnMissingBean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
+    @ConditionalOnMissingBean(name = "tranquilRedissonDefaultPointcut")
     public Pointcut tranquilRedissonDefaultPointcut() {
         return new AnnotationMatchingPointcut(null, Lockable.class, true);
     }
@@ -69,18 +73,20 @@ public class RedissonAnnotationAutoConfiguration {
      * @return lockable interceptor
      */
     @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     @ConditionalOnMissingBean
     public LockableMethodInterceptor tranquilLockableMethodInterceptor(
             RedissonTemplate redissonTemplate
     ) {
-        return new LockableMethodInterceptor(redissonTemplate, null);
+        return new LockableMethodInterceptor(redissonTemplate);
     }
 
     @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     @ConditionalOnMissingBean
     public LockableAnnotationAdvisor lockableAnnotationAdvisor(
             LockableMethodInterceptor interceptor,
-            Pointcut pointcut
+            @Qualifier("tranquilRedissonDefaultPointcut") Pointcut pointcut
     ) {
         return new LockableAnnotationAdvisor(interceptor, pointcut);
     }
