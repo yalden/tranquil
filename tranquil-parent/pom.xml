@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil-dependencies</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.0</version>
     <relativePath>../tranquil-dependencies/pom.xml</relativePath>
   </parent>
 
@@ -42,7 +42,7 @@
     <connection>${git.connection}</connection>
     <developerConnection>${git.developerConnection}</developerConnection>
     <url>${git.url}</url>
-    <tag>v1.0.0</tag>
+    <tag>v1.1.0</tag>
   </scm>
   <dependencyManagement>
     <dependencies>
