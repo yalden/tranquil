@@ -88,6 +88,7 @@ public class RedissonTemplate {
      * @param leaseTime 倒计leaseTime, 到0则释放锁, 不考虑supplier. -1: 开启锁续期; 其他,
      * @param unit      时间单位
      * @param supplier  获取到锁后的supplier
+     * @param <T>       supplier返回值类型
      * @return result of supplier
      * @see Lockable
      */

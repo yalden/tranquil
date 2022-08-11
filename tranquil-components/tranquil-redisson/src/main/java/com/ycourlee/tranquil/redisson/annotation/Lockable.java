@@ -42,7 +42,7 @@ public @interface Lockable {
     long waitTime() default -1;
 
     /**
-     * 该因子可使waitTime上浮{@link ThreadLocalRandom#nextLong(long)}, 其中bound参数为waitFactor.<br/>
+     * 该因子可使waitTime上浮{@link ThreadLocalRandom#nextLong(long)}, 其中bound参数为waitFactor.
      * 默认不上浮
      *
      * @return 等待锁时间上浮因子
@@ -52,7 +52,7 @@ public @interface Lockable {
     /**
      * 默认最大10秒释放锁. 若要开启续期, 需要设为-1, 这样redisson会每30秒续期一次（观察狗模式, 有消耗, 理性使用续期方式）
      *
-     * @return
+     * @return 锁持有时间
      */
     long leaseTime() default 10;
 
