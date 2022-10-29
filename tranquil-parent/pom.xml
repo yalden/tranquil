@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.ycourlee.tranquil</groupId>
     <artifactId>tranquil-dependencies</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.0-SNAPSHOT</version>
     <relativePath>../tranquil-dependencies/pom.xml</relativePath>
   </parent>
 
